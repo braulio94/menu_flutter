@@ -1,8 +1,8 @@
 # menu
 
-Restaurant menu app: [*how it looks now*](https://github/braulio94/menu/screenshots/screenshot)
+Restaurant menu app: [**how it looks now**](https://github/braulio94/menu/screenshots/screenshot)
 
-How it should look and behave: [*the goal*](https://www.uplabs.com/posts/today-s-special-ramen-restaurant-app)
+How it should look and behave: [**the goal**](https://www.uplabs.com/posts/today-s-special-ramen-restaurant-app)
 
 ### Getting Started
 
