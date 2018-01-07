@@ -41,7 +41,7 @@ class PageSelector extends StatelessWidget {
           ),
           new Container(
             padding: const EdgeInsets.only(bottom: 50.0),
-            child: new TabPageSelector(controller: controller, indicatorSize: 5.0, color: Colors.grey[600], selectedColor: Colors.amber[400]),
+            child: new TabPageSelector(controller: controller, indicatorSize: 5.0, selectedColor: Colors.amber[600]),
           ),
         ],
       ),
