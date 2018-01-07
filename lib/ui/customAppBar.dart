@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class MenuIcons extends StatelessWidget {
+class CustomAppBar extends StatelessWidget {
 
-  MenuIcons({Key key, this.counter}) : super(key: key);
+  CustomAppBar({Key key, this.counter}) : super(key: key);
 
   final int counter;
 
@@ -40,12 +40,26 @@ class MenuIcons extends StatelessWidget {
             ],
           ),
           ),
-          new IconButton(
-            tooltip: 'Shopping Cart',
-            icon: new Icon(const IconData(0xe807, fontFamily: 'fontello'),
-                color: Colors.grey[700]),
-            onPressed: null,
-          ),
+          new Stack(
+            children: <Widget>[
+              new IconButton(
+                tooltip: 'Shopping Cart',
+                icon: new Icon(const IconData(0xe807, fontFamily: 'fontello'),
+                    color: Colors.grey[700]),
+                onPressed: null,
+              ),
+              new Container(
+                height: 20.0,
+                width: 20.0,
+                alignment: new FractionalOffset(1.0, 0.5),
+                //margin: const EdgeInsets.only(left:25.0, top: 5.0),
+                child: new CircleAvatar(
+                  child: new Text('$counter', textDirection: TextDirection.ltr, style: const TextStyle(color: Colors.white, fontSize: 12.0)),
+                  backgroundColor: Colors.amber[400],
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
