@@ -8,7 +8,7 @@ How it should look and behave: [**the goal**](https://www.uplabs.com/posts/today
 
 1. [Install Flutter](https://flutter.io/setup/)
 2. Clone this repo
-3. Run `flutter run --release` 
+3. Run `flutter run --release` on your terminal
 
 
 
