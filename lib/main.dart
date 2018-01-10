@@ -23,12 +23,27 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'Menu',
         home: new Scaffold(
           body: new Stack(
+            alignment: AlignmentDirectional.topEnd,
             children: <Widget>[
               new DefaultTabController(
                 length: Menu.menu.length,
                 child: new PageSelector(),
               ),
-              new CustomAppBar(counter: _counter,),
+              new CustomAppBar(),
+              new Container(
+                margin: new EdgeInsets.only(
+                  top: 35.5,
+                  right: 10.0,
+                ),
+                height: 15.0,
+                width: 15.0,
+                child: new CircleAvatar(
+                  child: new Text('$_counter', textDirection: TextDirection.ltr,
+                      style: const TextStyle(
+                          color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w900)),
+                  backgroundColor: Colors.amber[400],
+                ),
+              )
             ],
           ),
         ),
