@@ -9,7 +9,7 @@ class FoodImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Container(
       alignment: new FractionalOffset(0.5, 0.0),
-      margin: const EdgeInsets.only(top: 80.0),
+      margin: const EdgeInsets.only(top: 70.0),
       child: new Hero(
         tag: 'icon-${food.id}',
         child: new Image(

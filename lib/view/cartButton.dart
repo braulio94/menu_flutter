@@ -8,7 +8,7 @@ class CartButton extends StatelessWidget{
   Widget build(BuildContext context) {
     return new Container(
       alignment: Alignment.bottomCenter,
-      margin: const EdgeInsets.only(bottom: 60.0),
+      margin: const EdgeInsets.only(bottom: 120.0),
       child: new SizedBox(
         width: 70.0,
         height: 50.0,

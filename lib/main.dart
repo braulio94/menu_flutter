@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menu/ui/customAppBar.dart';
 import 'package:menu/model/menu.dart';
-import 'package:menu/ui/pageSelector.dart';
+import 'package:menu/ui/newPager.dart';
 
 void main() => runApp(new MyHomePage(title: 'Menu'));
 
@@ -25,10 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
           body: new Stack(
             alignment: AlignmentDirectional.topEnd,
             children: <Widget>[
-              new DefaultTabController(
-                length: Menu.menu.length,
-                child: new PageSelector(),
-              ),
+              new MenuPager(),
               new CustomAppBar(),
               new Container(
                 margin: new EdgeInsets.only(
