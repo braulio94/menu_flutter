@@ -6,11 +6,39 @@ import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
 import 'package:menu/view/itemCard.dart';
 
+class MenuPager extends StatefulWidget {
+  @override
+  _MenuPagerState createState() => new _MenuPagerState();
+}
 
-class MenuPager extends StatelessWidget {
+
+class _MenuPagerState extends State<MenuPager> {
 
   final PageController controller = new PageController();
   final int _counter = 0;
+  MaterialColor _backColor = Colors.white;
+
+
+//  _MenuPagerState({
+//      setState(() {
+//          final List<MaterialColor> options = <MaterialColor>[];
+//          if (_logoColor != Colors.blue)
+//          options.addAll(<MaterialColor>[Colors.blue, Colors.blue, Colors.blue, Colors.blue, Colors.blue, Colors.blue, Colors.blue]);
+//          if (_logoColor != Colors.amber)
+//          options.addAll(<MaterialColor>[Colors.amber, Colors.amber, Colors.amber]);
+//          if (_logoColor != Colors.red)
+//          options.addAll(<MaterialColor>[Colors.red, Colors.red, Colors.red]);
+//          if (_logoColor != Colors.indigo)
+//          options.addAll(<MaterialColor>[Colors.indigo, Colors.indigo, Colors.indigo]);
+//          if (_logoColor != Colors.pink)
+//          options.addAll(<MaterialColor>[Colors.pink]);
+//          if (_logoColor != Colors.purple)
+//          options.addAll(<MaterialColor>[Colors.purple]);
+//          if (_logoColor != Colors.cyan)
+//          options.addAll(<MaterialColor>[Colors.cyan]);
+//          _logoColor = options[new math.Random().nextInt(options.length)];
+//      });
+//  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +46,14 @@ class MenuPager extends StatelessWidget {
       body: new Container(
         padding: new EdgeInsets.only(top: 16.0,),
         decoration: new BoxDecoration(
-            color: Colors.white
+            color: _backColor.shade500,
         ),
         child: new Stack(
           alignment: FractionalOffset.bottomCenter,
           children: <Widget>[
             new PageView(
               controller: controller,
+              //onPageChanged: ,
                 children: Menu.menu.map((Food food) {
                   return new Container(
                     key: new ObjectKey(food),
