@@ -6,39 +6,11 @@ import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
 import 'package:menu/view/itemCard.dart';
 
-class MenuPager extends StatefulWidget {
-  @override
-  _MenuPagerState createState() => new _MenuPagerState();
-}
 
-
-class _MenuPagerState extends State<MenuPager> {
+class MenuPager extends StatelessWidget {
 
   final PageController controller = new PageController();
   final int _counter = 0;
-  MaterialColor _backColor = Colors.white;
-
-
-//  _MenuPagerState({
-//      setState(() {
-//          final List<MaterialColor> options = <MaterialColor>[];
-//          if (_backColor != Colors.blue)
-//          options.addAll(<MaterialColor>[Colors.blue, Colors.blue, Colors.blue, Colors.blue, Colors.blue, Colors.blue, Colors.blue]);
-//          if (_backColor != Colors.amber)
-//          options.addAll(<MaterialColor>[Colors.amber, Colors.amber, Colors.amber]);
-//          if (_backColor != Colors.red)
-//          options.addAll(<MaterialColor>[Colors.red, Colors.red, Colors.red]);
-//          if (_backColor != Colors.indigo)
-//          options.addAll(<MaterialColor>[Colors.indigo, Colors.indigo, Colors.indigo]);
-//          if (_backColor != Colors.pink)
-//          options.addAll(<MaterialColor>[Colors.pink]);
-//          if (_backColor != Colors.purple)
-//          options.addAll(<MaterialColor>[Colors.purple]);
-//          if (_backColor != Colors.cyan)
-//          options.addAll(<MaterialColor>[Colors.cyan]);
-//          _backColor = options[new math.Random().nextInt(options.length)];
-//      });
-//  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +18,18 @@ class _MenuPagerState extends State<MenuPager> {
       body: new Container(
         padding: new EdgeInsets.only(top: 16.0,),
         decoration: new BoxDecoration(
-            color: _backColor.shade500,
+          gradient: new LinearGradient(colors: [Colors.yellow[100],Colors.white],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(0.0, 0.8),
+              stops: [0.0,1.0],
+              tileMode: TileMode.clamp
+          ),
         ),
         child: new Stack(
           alignment: FractionalOffset.bottomCenter,
           children: <Widget>[
             new PageView(
               controller: controller,
-              //onPageChanged: ,
                 children: Menu.menu.map((Food food) {
                   return new Container(
                     key: new ObjectKey(food),
