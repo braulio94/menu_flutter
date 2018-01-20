@@ -56,7 +56,7 @@ class MenuPager extends StatelessWidget {
                   top: 50.0,
                   bottom: 50.0,
                 ),
-                child: new RectangleIndicator(controller, Menu.menu.length, 5.0, Colors.grey, Colors.black)
+                child: new RectangleIndicator(controller, Menu.menu.length, 0.0, Colors.grey, Colors.black)
             ),
           ],
         ),

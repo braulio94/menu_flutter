@@ -145,14 +145,6 @@ class _AnimatedRectangleAvatar extends StatelessWidget {
     return new Stack(
       alignment: FractionalOffset.center,
       children: <Widget>[
-        new ScaleTransition(
-          scale: new CurvedAnimation(
-              parent: controller,
-              curve: Curves.linear,
-              reverseCurve: Curves.bounceOut
-          ),
-          child: selectedRectangle,
-        ),
         new Container(
           width: 10.0,
           height: 3.0,
@@ -161,6 +153,15 @@ class _AnimatedRectangleAvatar extends StatelessWidget {
             shape: BoxShape.rectangle,
           ),
         ),
+        new ScaleTransition(
+          scale: new CurvedAnimation(
+              parent: controller,
+              curve: Curves.linear,
+              reverseCurve: Curves.bounceOut
+          ),
+          child: selectedRectangle,
+        ),
+
       ],
     );
   }

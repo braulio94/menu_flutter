@@ -12,7 +12,7 @@ How it should look and behave: [**the goal**](https://www.uplabs.com/posts/today
 - [ ] Counter add actual items selected in the list
 - [ ] Increment & decrement quantities
 - [x] Add custom tab indicators
-- [ ] Change food prices 
+- [x] Change food prices
 - [ ] Make cards slide animation 
 - [ ] Make cart animation
 
