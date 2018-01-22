@@ -18,16 +18,22 @@ class MenuPager extends StatelessWidget {
       body: new Container(
         padding: new EdgeInsets.only(top: 16.0,),
         decoration: new BoxDecoration(
-          gradient: new LinearGradient(colors: [Colors.yellow[100],Colors.white],
-              begin: const FractionalOffset(0.0, 0.0),
-              end: const FractionalOffset(0.0, 0.8),
-              stops: [0.0,1.0],
-              tileMode: TileMode.clamp
-          ),
+          color: Colors.brown[50]
         ),
         child: new Stack(
           alignment: FractionalOffset.bottomCenter,
           children: <Widget>[
+            new Container(
+                padding: const EdgeInsets.only(top: 250.0, right: 80.0, left: 80.0, bottom: 50.0),
+                decoration: new BoxDecoration(
+                    color: Colors.white
+                ),
+                margin: new EdgeInsets.only(
+                    top: 50.0,
+                    bottom: 0.0
+                ),
+                child: new RectangleIndicator(controller, Menu.menu.length, 0.0, Colors.grey, Colors.black)
+            ),
             new PageView(
               controller: controller,
                 children: Menu.menu.map((Food food) {
@@ -50,13 +56,6 @@ class MenuPager extends StatelessWidget {
                     ),
                   );
                 }).toList()
-            ),
-            new Container(
-                margin: new EdgeInsets.only(
-                  top: 50.0,
-                  bottom: 50.0,
-                ),
-                child: new RectangleIndicator(controller, Menu.menu.length, 0.0, Colors.grey, Colors.black)
             ),
           ],
         ),
