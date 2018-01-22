@@ -12,7 +12,7 @@ How it should look and behave: **the goal**
 
 ## Todo
 
-- [ ] Make background colors that changes with PageSelector
+- [ ] Make background colors that changes with PageView
 - [ ] Counter add actual items selected in the list
 - [ ] Increment & decrement quantities
 - [x] Add custom tab indicators
@@ -29,9 +29,23 @@ How it should look and behave: **the goal**
 
 
 
-
-
-
-
 For help getting started with Flutter, view our online
 [documentation](http://flutter.io/).
+
+
+Copyright (c) 2018, Braulio Cassule
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
