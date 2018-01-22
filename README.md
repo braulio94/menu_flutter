@@ -2,7 +2,7 @@
 
 Restaurant menu app: **how it looks now**
 
-<img src="https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png" width="240" height="500">
+<img src="https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png" width="340" height="650">
 
 How it should look and behave: **the goal**
 
