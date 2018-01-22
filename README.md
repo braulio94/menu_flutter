@@ -1,8 +1,12 @@
 # menu
 
-Restaurant menu app: [**how it looks now**](https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png)
+Restaurant menu app: **how it looks now**
 
-How it should look and behave: [**the goal**](https://www.uplabs.com/posts/today-s-special-ramen-restaurant-app)
+<img src="https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png" width="240" height="500">
+
+How it should look and behave: **the goal**
+
+<img src="https://assets.materialup.com/uploads/94858f6b-93bc-43d8-b12d-c88c198505fc/preview.gif" width="600" height="400">
 
 
 
