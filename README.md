@@ -2,7 +2,7 @@
 
 **how it looks now**                     VS                  **How it should look and behave**
 
-<img src="https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png" width="240" height="450">                      [<img src="https://github.com/braulio94/menu_flutter/blob/master/screenshots/preview.gif" width="600" height="450">](https://www.uplabs.com/posts/today-s-special-ramen-restaurant-app)
+<img src="https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png" width="240" height="450">                      [<img src="https://github.com/braulio94/menu_flutter/blob/master/screenshots/preview.gif" width="600" height="450">](https://goo.gl/jChLBV)
 
 
 
