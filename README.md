@@ -1,4 +1,4 @@
-# menu
+# Menu Flutter  <img src="https://flutter.io/images/flutter-mark-square-100.png" alt="Flutter" width="30" height="30" />
 
 Restaurant menu app: **how it looks now**
 
