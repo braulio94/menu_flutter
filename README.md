@@ -6,7 +6,7 @@ Restaurant menu app: **how it looks now**
 
 How it should look and behave: **the goal**
 
-<img src="https://assets.materialup.com/uploads/94858f6b-93bc-43d8-b12d-c88c198505fc/preview.gif" width="600" height="400">
+[<img src="https://github.com/braulio94/menu_flutter/blob/master/screenshots/preview.gif" width="700" height="530">](https://www.uplabs.com/posts/today-s-special-ramen-restaurant-app)
 
 
 
