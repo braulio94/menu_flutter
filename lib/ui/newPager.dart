@@ -6,11 +6,17 @@ import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
 import 'package:menu/view/itemCard.dart';
 
+class MenuPager extends StatefulWidget {
+  @override
+  _MenuPagerState createState() => new _MenuPagerState();
+}
 
-class MenuPager extends StatelessWidget {
+
+class _MenuPagerState extends State<MenuPager> {
 
   final PageController controller = new PageController();
   final int _counter = 0;
+  int pageNumber = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class MenuPager extends StatelessWidget {
       body: new Container(
         padding: new EdgeInsets.only(top: 16.0,),
         decoration: new BoxDecoration(
-          color: Colors.brown[50]
+          color: Colors.brown[pageNumber * 100]
         ),
         child: new Stack(
           alignment: FractionalOffset.bottomCenter,
@@ -35,6 +41,11 @@ class MenuPager extends StatelessWidget {
                 child: new RectangleIndicator(controller, Menu.menu.length, 0.0, Colors.grey, Colors.black)
             ),
             new PageView(
+              onPageChanged: (index){
+                setState((){
+                  pageNumber = index;
+                });
+              },
               controller: controller,
                 children: Menu.menu.map((Food food) {
                   return new Container(
