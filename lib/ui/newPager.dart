@@ -67,7 +67,7 @@ class _MenuPagerState extends State<MenuPager> {
 //                              ]
 //                          ),
                           child: new Card(
-                              elevation: 0.0,
+                              elevation: 7.0,
                               child: new ItemCard(food: food)
                           ),
                         ),
