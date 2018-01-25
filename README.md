@@ -15,6 +15,7 @@
 - [x] Change food prices
 - [ ] Make cards slide animation 
 - [ ] Make cart animation
+- [ ] Customize card shadow
 
 
 ### Getting Started

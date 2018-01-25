@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: new Text('$_counter', textDirection: TextDirection.ltr,
                       style: const TextStyle(
                           color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w900)),
-                  backgroundColor: Colors.amber[400],
+                  backgroundColor: Colors.amber,
                 ),
               )
             ],

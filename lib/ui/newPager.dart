@@ -22,7 +22,7 @@ class _MenuPagerState extends State<MenuPager> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        padding: new EdgeInsets.only(top: 16.0,),
+        padding: new EdgeInsets.only(top: 16.0),
         decoration: new BoxDecoration(
           color: Colors.brown[pageNumber * 100]
         ),
@@ -56,8 +56,18 @@ class _MenuPagerState extends State<MenuPager> {
                           height: 400.0,
                           margin:  const EdgeInsets.only(top: 80.0),
                           padding: const EdgeInsets.only(top: 60.0, left: 40.0, right: 40.0),
+                          // Code to customize card shadow
+
+//                          decoration: new BoxDecoration(
+//                              boxShadow: <BoxShadow>[
+//                                new BoxShadow(color: Colors.black26,
+//                                    blurRadius: 50.0,
+//                                    spreadRadius: 6.0,
+//                                    offset: new Offset(10.0, 10.0)),
+//                              ]
+//                          ),
                           child: new Card(
-                              elevation: 7.0,
+                              elevation: 0.0,
                               child: new ItemCard(food: food)
                           ),
                         ),

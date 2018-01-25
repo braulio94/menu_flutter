@@ -17,8 +17,7 @@ class CartButton extends StatelessWidget{
             highlightColor: Colors.grey[900],
             onPressed: null,
             elevation: counter == 0 ? 10.0 : 5.0,
-            color: counter == 0 ? Colors.grey[350] : Colors
-                .amber[400],
+            color: counter == 0 ? Colors.grey[350] : Colors.amber,
             child: new Icon(
                 const IconData(
                     0xe807,
