@@ -53,6 +53,25 @@ class _MenuPagerState extends State<MenuPager> {
                     key: new ObjectKey(food),
                     child: new Stack(
                       children: <Widget>[
+                        new Center(
+                          child: new Container(
+                            height: 10.0,
+                            width: 100.0,
+                            margin: const EdgeInsets.only(top: 250.0),
+                            decoration: new BoxDecoration(
+                                boxShadow: <BoxShadow>[
+//                                  new BoxShadow(color: Colors.amber[400],
+//                                      blurRadius: 30.0,
+//                                      spreadRadius: 10.0,
+//                                      offset: new Offset(0.0, 50.0)),
+                                  new BoxShadow(color: Colors.grey[800],
+                                      blurRadius: 35.0,
+                                      spreadRadius: 10.0,
+                                      offset: new Offset(0.0, 50.0)),
+                                ]
+                            ),
+                          ),
+                        ),
                         new Container(
                           height: 400.0,
                           margin:  const EdgeInsets.only(top: 80.0),

@@ -13,9 +13,9 @@
 - [ ] Increment & decrement quantities
 - [x] Add custom tab indicators
 - [x] Change food prices
-- [ ] Make cards slide animation 
+- [ ] Make cards slide animation
 - [ ] Make cart animation
-- [ ] Customize card shadow
+- [x] Customize card shadow
 
 
 ### Getting Started
