@@ -14,9 +14,9 @@ class MenuPager extends StatefulWidget {
 
 class _MenuPagerState extends State<MenuPager> {
 
-  final PageController controller = new PageController();
+  final PageController controller = new PageController(viewportFraction: 0.8);
   final int _counter = 0;
-  int pageNumber = 1;
+  int pageNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +44,7 @@ class _MenuPagerState extends State<MenuPager> {
               onPageChanged: (index){
                 setState((){
                   pageNumber = index;
+                  controller.animateToPage(index, duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
                 });
               },
               controller: controller,
@@ -55,17 +56,7 @@ class _MenuPagerState extends State<MenuPager> {
                         new Container(
                           height: 400.0,
                           margin:  const EdgeInsets.only(top: 80.0),
-                          padding: const EdgeInsets.only(top: 60.0, left: 40.0, right: 40.0),
-                          // Code to customize card shadow
-
-//                          decoration: new BoxDecoration(
-//                              boxShadow: <BoxShadow>[
-//                                new BoxShadow(color: Colors.black26,
-//                                    blurRadius: 50.0,
-//                                    spreadRadius: 6.0,
-//                                    offset: new Offset(10.0, 10.0)),
-//                              ]
-//                          ),
+                          padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
                           child: new Card(
                               elevation: 7.0,
                               child: new ItemCard(food: food)

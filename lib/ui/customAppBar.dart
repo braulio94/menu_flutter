@@ -21,7 +21,7 @@ class CustomAppBar extends StatelessWidget {
                 icon: new  Icon(
                     const IconData(
                         0xe802,
-                        fontFamily: 'fontello'),size: 18.0, color: Colors.grey[700]),
+                        fontFamily: 'fontello'),size: 18.0, color: Colors.black87),
                 onPressed: null,
               ),
               new Container(
@@ -39,7 +39,7 @@ class CustomAppBar extends StatelessWidget {
           new IconButton(
             tooltip: 'Shopping Cart',
             icon: new Icon(const IconData(0xe807, fontFamily: 'fontello'),
-                color: Colors.grey[700]),
+                color: Colors.black87),
             onPressed: null,
           ),
         ],

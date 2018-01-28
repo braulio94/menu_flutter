@@ -27,12 +27,12 @@ class Menu{
         name: "Seefood Soup",
         price: "\$30"
     ),
-    const Food(
-        id: "5",
-        image: "assets/images/menu4.png",
-        name: "",
-        price: "\$00"
-    ),
+//    const Food(
+//        id: "5",
+//        image: "assets/images/menu4.png",
+//        name: "",
+//        price: "\$00"
+//    ),
     const Food(
         id: "6",
         image: "assets/images/menu12.png",
@@ -75,11 +75,11 @@ class Menu{
         name: "Chicken Fillet Salad",
         price: "\$43"
     ),
-    const Food(
-        id: "13",
-        image: "assets/images/menu14.png",
-        name: "",
-        price: "\$3"
-    ),
+//    const Food(
+//        id: "13",
+//        image: "assets/images/menu14.png",
+//        name: "",
+//        price: "\$3"
+//    ),
   ];
 }
