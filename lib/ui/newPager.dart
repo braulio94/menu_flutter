@@ -72,7 +72,7 @@ class _MenuPagerState extends State<MenuPager> {
                           margin:  const EdgeInsets.only(top: 80.0),
                           padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
                           child: new Card(
-                              //elevation: 7.0,
+                              elevation: 7.0,
                               child: new ItemCard(food: food)
                           ),
                         ),
