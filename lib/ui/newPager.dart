@@ -17,7 +17,7 @@ class MenuPager extends StatefulWidget {
 class _MenuPagerState extends State<MenuPager> {
 
   final PageController controller = new PageController(viewportFraction: 0.8);
-  Color _backColor = Colors.white;
+  Color _backColor = const Color.fromRGBO(250, 248, 244, 1.0);
   final int _counter = 0;
   int pageNumber = 0;
 
@@ -25,9 +25,10 @@ class _MenuPagerState extends State<MenuPager> {
     const Color.fromRGBO(240, 232, 223, 1.0),
     const Color.fromRGBO(214, 214, 198, 1.0),
     const Color.fromRGBO(209, 205, 190, 1.0),
-  Colors.brown[50],
+    const Color.fromRGBO(239, 233, 219, 1.0),
     const Color.fromRGBO(207, 203, 188, 1.0),
-    Colors.brown[100],
+    const Color.fromRGBO(231, 222, 211, 1.0),
+    const Color.fromRGBO(217, 214, 198, 1.0)
   ];
 
   @override
@@ -71,7 +72,7 @@ class _MenuPagerState extends State<MenuPager> {
                           margin:  const EdgeInsets.only(top: 80.0),
                           padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
                           child: new Card(
-                              elevation: 0.0,
+                              //elevation: 7.0,
                               child: new ItemCard(food: food)
                           ),
                         ),
