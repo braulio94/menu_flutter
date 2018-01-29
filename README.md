@@ -8,7 +8,7 @@
 
 ## Todo
 
-- [ ] Make background colors that changes with PageView
+- [x] Make background colors that changes with PageView
 - [ ] Counter add actual items selected in the list
 - [ ] Increment & decrement quantities
 - [x] Add custom tab indicators
