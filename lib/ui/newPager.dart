@@ -6,6 +6,7 @@ import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
 import 'package:menu/view/itemCard.dart';
 import 'package:menu/view/shadows.dart';
+import 'dart:math' as math;
 
 class MenuPager extends StatefulWidget {
   @override
@@ -16,8 +17,18 @@ class MenuPager extends StatefulWidget {
 class _MenuPagerState extends State<MenuPager> {
 
   final PageController controller = new PageController(viewportFraction: 0.8);
+  Color _backColor = Colors.white;
   final int _counter = 0;
   int pageNumber = 0;
+
+  final List<Color> colors = <Color>[
+    const Color.fromRGBO(240, 232, 223, 1.0),
+    const Color.fromRGBO(214, 214, 198, 1.0),
+    const Color.fromRGBO(209, 205, 190, 1.0),
+  Colors.brown[50],
+    const Color.fromRGBO(207, 203, 188, 1.0),
+    Colors.brown[100],
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +36,7 @@ class _MenuPagerState extends State<MenuPager> {
       body: new Container(
         padding: new EdgeInsets.only(top: 16.0),
         decoration: new BoxDecoration(
-          color: Colors.brown[pageNumber * 100]
+          color: _backColor
         ),
         child: new Stack(
           alignment: FractionalOffset.bottomCenter,
@@ -44,8 +55,7 @@ class _MenuPagerState extends State<MenuPager> {
             new PageView(
               onPageChanged: (index){
                 setState((){
-                  pageNumber = index;
-                  controller.animateToPage(index, duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+                  _backColor = colors[new math.Random().nextInt(colors.length)];
                 });
               },
               controller: controller,
