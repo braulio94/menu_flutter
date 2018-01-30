@@ -14,7 +14,7 @@
 - [x] Add custom tab indicators
 - [x] Change food prices
 - [ ] Make cards slide animation
-- [ ] Make cart animation
+- [x] Make cart animation
 - [x] Customize card shadow
 
 
