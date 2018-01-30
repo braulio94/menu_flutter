@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:menu/ui/customAppBar.dart';
 import 'package:menu/model/menu.dart';
 import 'package:menu/ui/newPager.dart';
+import 'package:menu/view/animated_circle.dart';
 
 void main() => runApp(new MyHomePage(title: 'Menu'));
 
@@ -15,7 +16,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               new MenuPager(),
               new CustomAppBar(),
-              new Container(
-                margin: new EdgeInsets.only(
-                  top: 35.5,
-                  right: 10.0,
-                ),
-                height: 15.0,
-                width: 15.0,
-                child: new CircleAvatar(
-                  child: new Text('$_counter', textDirection: TextDirection.ltr,
-                      style: const TextStyle(
-                          color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w900)),
-                  backgroundColor: Colors.amber,
-                ),
-              )
+              new AnimtedCircle(),
             ],
           ),
         ),
