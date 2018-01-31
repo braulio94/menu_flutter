@@ -25,7 +25,7 @@ class _CartButtonState extends State<CartButton> {
   Widget build(BuildContext context) {
     return new Container(
       alignment: Alignment.bottomCenter,
-      margin: const EdgeInsets.only(bottom: 120.0),
+      margin: const EdgeInsets.only(bottom: 130.0),
       child: new SizedBox(
         width: 70.0,
         height: 50.0,

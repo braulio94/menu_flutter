@@ -27,7 +27,6 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               new MenuPager(),
               new CustomAppBar(),
-              new AnimtedCircle(),
             ],
           ),
         ),

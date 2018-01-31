@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation ;
 
-class AnimtedCircle extends StatefulWidget {
+class AnimatedCircle extends StatefulWidget {
   @override
   _AnimatedCirceState createState() => new _AnimatedCirceState();
 }
 
-class _AnimatedCirceState extends State<AnimtedCircle> with TickerProviderStateMixin{
+class _AnimatedCirceState extends State<AnimatedCircle> with TickerProviderStateMixin{
 
   AnimationController _controller;
 
@@ -42,7 +42,7 @@ class _AnimatedCirceState extends State<AnimtedCircle> with TickerProviderStateM
   Widget build(BuildContext context) {
     timeDilation = 1.0;
     return new Container(
-      margin: const EdgeInsets.only(top: 35.5, right: 10.0, bottom: 120.0),
+      margin: const EdgeInsets.only(top: 35.5, bottom: 120.0),
       child: new GestureDetector(
         child:  new StaggerAnimation(
           controller: _controller.view,
@@ -73,17 +73,17 @@ class StaggerAnimation extends StatelessWidget {
 
         dx = new Tween<double>(
             end: 15.0,
-            begin: 80.0
+            begin: 70.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         dy = new Tween<double>(
             end: 15.0,
-            begin: 80.0
+            begin: 70.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         alignment = new AlignmentTween(
           begin: Alignment.bottomCenter,
-          end: Alignment.topRight,
+          end: FractionalOffset.topRight,
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         super(key: key);
