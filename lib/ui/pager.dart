@@ -89,10 +89,6 @@ class _MenuPagerState extends State<MenuPager> {
                                   )
                               ),
                               new Align(
-                                  alignment: FractionalOffset.bottomCenter,
-                                  child: new CartButton(0)
-                              ),
-                              new Align(
                                   alignment: FractionalOffset.topCenter,
                                   child: new FoodImage(food: food)
                               ),
@@ -100,7 +96,7 @@ class _MenuPagerState extends State<MenuPager> {
                           ),
                         ),
                       ),
-                      new AnimatedCircle(),
+                      new AnimatedCircle(_counter),
                     ],
                   );
                 }).toList()

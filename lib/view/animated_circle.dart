@@ -5,18 +5,25 @@ import 'package:flutter/scheduler.dart' show timeDilation ;
 import 'package:menu/view/cartButton.dart';
 
 class AnimatedCircle extends StatefulWidget {
+
+  final int counter;
+
+  AnimatedCircle(this.counter);
+
   @override
-  _AnimatedCirceState createState() => new _AnimatedCirceState();
+  _AnimatedCircleState createState() => new _AnimatedCircleState(counter);
 }
 
-class _AnimatedCirceState extends State<AnimatedCircle> with TickerProviderStateMixin{
+class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStateMixin{
 
   AnimationController _controller;
-
+  int counter;
+  _AnimatedCircleState(this.counter);
 
   @override
   void initState() {
     super.initState();
+    counter = 1;
     _controller = new AnimationController(
         duration: const Duration(milliseconds: 700),
         vsync: this
@@ -44,14 +51,39 @@ class _AnimatedCirceState extends State<AnimatedCircle> with TickerProviderState
     timeDilation = 1.0;
     return new Container(
       margin: const EdgeInsets.only(top: 35.5, right: 10.0, bottom: 120.0),
-      child: new GestureDetector(
-        child:  new StaggerAnimation(
-          controller: _controller.view,
-        ),
-        behavior: HitTestBehavior.opaque,
-        onTap: () {
-          _playAnimation();
-        },
+      child: new Stack(
+        children: <Widget>[
+          new StaggerAnimation(
+            controller: _controller.view,
+          ),
+          new Align(
+              alignment: FractionalOffset.bottomCenter,
+              child:  new Container(
+                child: new SizedBox(
+                  width: 70.0,
+                  height: 50.0,
+                  child: new Hero(tag: 'cart_items',
+                    child: new MaterialButton(
+                      highlightColor: Colors.grey[400],
+                      onPressed: (){
+                        setState((){
+                          counter = 0;
+                          _playAnimation();
+                        });
+                      },
+                      elevation: counter == 0 ? 10.0 : 5.0,
+                      color: counter == 0 ? Colors.grey[350] : Colors.amber,
+                      child: new Icon(
+                          const IconData(
+                              0xe807,
+                              fontFamily: 'fontello'), size: 20.0,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+          ),
+        ],
       ),
     );
   }
