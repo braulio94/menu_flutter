@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:menu/view/animated_circle.dart';
 
 class CartButton extends StatefulWidget {
   final int counter;
@@ -24,8 +23,6 @@ class _CartButtonState extends State<CartButton> {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      alignment: Alignment.bottomCenter,
-      margin: const EdgeInsets.only(bottom: 120.0),
       child: new SizedBox(
         width: 70.0,
         height: 50.0,

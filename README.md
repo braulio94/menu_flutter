@@ -19,6 +19,7 @@
 - [ ] Increment & decrement quantities
 - [ ] create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)
 - [ ] navigate to secondary screen with hero animation
+- [ ] apply a different text font
 
 
 ### Getting Started

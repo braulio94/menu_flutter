@@ -59,18 +59,18 @@ class Menu{
     ),
     const Food(
         id: "10",
-        image: "assets/images/menu2.png",
-        name: "",
-        price: "\$18"
-    ),
-    const Food(
-        id: "11",
         image: "assets/images/menu8.png",
         name: "Chicken Fillet Salad",
         price: "\$43"
     ),
 //    const Food(
-//        id: "5",
+//        id: "11",
+//        image: "assets/images/menu2.png",
+//        name: "",
+//        price: "\$18"
+//    ),
+//    const Food(
+//        id: "12",
 //        image: "assets/images/menu4.png",
 //        name: "",
 //        price: "\$00"

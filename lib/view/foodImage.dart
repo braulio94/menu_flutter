@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menu/model/food.dart';
+import 'dart:math' as math;
 
 class FoodImage extends StatelessWidget {
   FoodImage({this.food});
@@ -7,17 +8,13 @@ class FoodImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      alignment: new FractionalOffset(0.5, 0.0),
-      margin: const EdgeInsets.only(top: 70.0),
-      child: new Hero(
+    return new Hero(
         tag: 'icon-${food.id}',
         child: new Image(
           image: new AssetImage(food.image),
           height: 150.0,
           width: 150.0,
         ),
-      ),
     );
   }
 }

@@ -2,13 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation ;
+import 'package:menu/view/cartButton.dart';
 
-class AnimtedCircle extends StatefulWidget {
+class AnimatedCircle extends StatefulWidget {
   @override
   _AnimatedCirceState createState() => new _AnimatedCirceState();
 }
 
-class _AnimatedCirceState extends State<AnimtedCircle> with TickerProviderStateMixin{
+class _AnimatedCirceState extends State<AnimatedCircle> with TickerProviderStateMixin{
 
   AnimationController _controller;
 
@@ -17,7 +18,7 @@ class _AnimatedCirceState extends State<AnimtedCircle> with TickerProviderStateM
   void initState() {
     super.initState();
     _controller = new AnimationController(
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 700),
         vsync: this
     );
   }
@@ -73,12 +74,12 @@ class StaggerAnimation extends StatelessWidget {
 
         dx = new Tween<double>(
             end: 15.0,
-            begin: 80.0
+            begin: 70.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         dy = new Tween<double>(
             end: 15.0,
-            begin: 80.0
+            begin: 70.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         alignment = new AlignmentTween(

@@ -24,10 +24,7 @@ class CustomAppBar extends StatelessWidget {
                         fontFamily: 'fontello'),size: 18.0, color: Colors.black87),
                 onPressed: null,
               ),
-              new Container(
-                margin: const EdgeInsets.only(
-                  left: 16.0
-                ),
+              new Expanded(
                 child: new Text(
                     'Menu',
                     textAlign: TextAlign.center,

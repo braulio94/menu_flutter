@@ -9,7 +9,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-    margin: const EdgeInsets.only(top: 60.0, bottom: 50.0),
+    margin: const EdgeInsets.only(top: 50.0, bottom: 30.0),
     child: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -30,7 +30,6 @@ class ItemCard extends StatelessWidget {
             ),
           ),
           new Container(
-            margin: const EdgeInsets.only(top: 40.0),
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
