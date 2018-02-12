@@ -63,6 +63,7 @@ flutter:
      - family: Dosis
        fonts:
          - asset: assets/fonts/Dosis/Dosis-Regular.ttf
+           weight: 400
          - asset: assets/fonts/Dosis/Dosis-Medium.ttf
            weight: 500
          - asset: assets/fonts/Dosis/Dosis-SemiBold.ttf
