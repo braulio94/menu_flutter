@@ -17,7 +17,7 @@ class MenuPager extends StatefulWidget {
 
 class _MenuPagerState extends State<MenuPager> {
 
-  final PageController controller = new PageController();
+  final PageController controller = new PageController(viewportFraction: 0.75);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   final int _counter = 0;
   int _currentPage = 0;
