@@ -13,7 +13,7 @@ class ItemCard extends StatelessWidget {
     child: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Text(food.name, style: Theme.of(context).textTheme.headline),
+          new Text(food.name, style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600, fontFamily: 'Dosis')),
           new DecoratedBox(decoration: new BoxDecoration(
               borderRadius: new BorderRadius.circular(30.0)),
               child: new ClipRRect(

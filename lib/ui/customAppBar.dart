@@ -26,9 +26,13 @@ class CustomAppBar extends StatelessWidget {
               ),
               new Expanded(
                 child: new Text(
-                    'Menu',
+                    'MENU',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.title),
+                    style: const TextStyle(
+                      fontSize: 21.0,
+                      fontFamily: 'Dosis',
+                      fontWeight: FontWeight.w600
+                    )),
               ),
             ],
           ),
