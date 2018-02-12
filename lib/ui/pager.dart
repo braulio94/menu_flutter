@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
 import 'package:menu/view/animated_circle.dart';
-import 'package:menu/view/cartButton.dart';
 import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
 import 'package:menu/view/itemCard.dart';
@@ -20,7 +19,6 @@ class _MenuPagerState extends State<MenuPager> {
   final PageController controller = new PageController(viewportFraction: 0.75);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   final int _counter = 0;
-  int _currentPage = 0;
 
   final List<Color> colors = <Color>[
     const Color.fromRGBO(240, 232, 223, 1.0),
