@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menu/ui/customAppBar.dart';
-import 'package:menu/model/menu.dart';
-import 'package:menu/ui/newPager.dart';
-import 'package:menu/view/animated_circle.dart';
+import 'package:menu/ui/pager.dart';
 
 void main() => runApp(new MyHomePage(title: 'Menu'));
 

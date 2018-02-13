@@ -6,71 +6,71 @@ class Menu{
     const Food(
       id: "1",
       image: "assets/images/menu1.png",
-      name: "Lasagne",
+      name: "LASAGNE",
       price: "\$12"
     ),
     const Food(
         id: "2",
         image: "assets/images/menu3.png",
-        name: "Salad",
+        name: "SALAD",
         price: "\$8"
     ),
     const Food(
         id: "3",
         image: "assets/images/menu11.png",
-        name: "Mashroom Sauce",
+        name: "MASHROOM SAUCE",
         price: "\$4"
     ),
     const Food(
         id: "4",
         image: "assets/images/menu13.png",
-        name: "Seefood Soup",
+        name: "SEEFOOD SOUP",
         price: "\$30"
     ),
     const Food(
         id: "5",
         image: "assets/images/menu12.png",
-        name: "Fillet & Prawns",
+        name: "FILLET & PRAWNS",
         price: "\$22"
     ),
     const Food(
         id: "6",
         image: "assets/images/menu10.png",
-        name: "Meat Roll",
+        name: "MEAT ROLL",
         price: "\$19"
     ),
     const Food(
         id: "7",
         image: "assets/images/menu7.png",
-        name: "Chicken Salad",
+        name: "CHICKEN SALAD",
         price: "\$25"
     ),
     const Food(
         id: "8",
         image: "assets/images/menu5.png",
-        name: "Bolonesa Pasta",
+        name: "BOLONESA PASTA",
         price: "\$7"
     ),
     const Food(
         id: "9",
         image: "assets/images/menu9.png",
-        name: "Overcooked Meat",
+        name: "OVERCOOKED MEAT",
         price: "\$63"
     ),
     const Food(
         id: "10",
-        image: "assets/images/menu2.png",
-        name: "",
-        price: "\$18"
-    ),
-    const Food(
-        id: "11",
         image: "assets/images/menu8.png",
-        name: "Chicken Fillet Salad",
+        name: "CHICKEN FILLET SALAD",
         price: "\$43"
     ),
 //    const Food(
-//        id: "5",
+//        id: "11",
+//        image: "assets/images/menu2.png",
+//        name: "",
+//        price: "\$18"
+//    ),
+//    const Food(
+//        id: "12",
 //        image: "assets/images/menu4.png",
 //        name: "",
 //        price: "\$00"

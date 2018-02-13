@@ -138,16 +138,16 @@ class _AnimatedRectangleAvatar extends StatelessWidget {
           shape: BoxShape.rectangle,
           color: selectedColor,
         ),
-        width: 10.0,
-        height: 3.0
+        width: radius * 3,
+        height: radius / 2
     );
 
     return new Stack(
       alignment: FractionalOffset.center,
       children: <Widget>[
         new Container(
-          width: 10.0,
-          height: 3.0,
+          width: radius * 3,
+          height: radius / 2,
           decoration: new BoxDecoration(
             color: baseColor,
             shape: BoxShape.rectangle,
