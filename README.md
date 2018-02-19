@@ -14,7 +14,7 @@
 - [x] ~~Make cart animation~~
 - [x] ~~Customize card shadow~~
 - [x] ~~apply different text font~~
-- [ ] ~~create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)~~
+- [x] ~~create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)~~
 - [ ] Make cards slide animation
 - [ ] create application [architecture](https://github.com/brianegan/flutter_architecture_samples)
 - [ ] Counter add actual items selected in a list
