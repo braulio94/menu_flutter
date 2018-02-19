@@ -1,0 +1,89 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --no-color packages get
+
+## exception
+
+SocketException: SocketException: Failed host lookup: 'storage.googleapis.com' (OS Error: No such host is known.
+, errno = 11001)
+
+```
+#0      _attempt (package:flutter_tools/src/base/net.dart:40)
+<asynchronous suspension>
+#1      fetchUrl (package:flutter_tools/src/base/net.dart:22)
+<asynchronous suspension>
+#2      _downloadFile (package:flutter_tools/src/cache.dart:405)
+<asynchronous suspension>
+#3      _downloadZipArchive.<anonymous closure> (package:flutter_tools/src/cache.dart:412)
+<asynchronous suspension>
+#4      _withTemporaryFile (package:flutter_tools/src/cache.dart:433)
+<asynchronous suspension>
+#5      _downloadZipArchive (package:flutter_tools/src/cache.dart:411)
+#6      FlutterEngine._downloadItem (package:flutter_tools/src/cache.dart:378)
+#7      FlutterEngine.updateInner (package:flutter_tools/src/cache.dart:346)
+<asynchronous suspension>
+#8      CachedArtifact.update (package:flutter_tools/src/cache.dart:223)
+<asynchronous suspension>
+#9      Cache.updateAll (package:flutter_tools/src/cache.dart:196)
+<asynchronous suspension>
+#10     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:239)
+<asynchronous suspension>
+#11     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:193)
+<asynchronous suspension>
+#12     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#13     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:279)
+<asynchronous suspension>
+#14     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#15     new Future.sync (dart:async/future.dart:222)
+#16     CommandRunner.run (package:args/command_runner.dart:109)
+#17     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:162)
+#18     run.<anonymous closure> (package:flutter_tools/executable.dart:145)
+<asynchronous suspension>
+#19     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#20     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#21     _rootRun (dart:async/zone.dart:1120)
+#22     _CustomZone.run (dart:async/zone.dart:1001)
+#23     runZoned (dart:async/zone.dart:1467)
+#24     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#25     run (package:flutter_tools/executable.dart:116)
+<asynchronous suspension>
+#26     main (package:flutter_tools/executable.dart:68)
+<asynchronous suspension>
+#27     main (file:///C:/Users/Braulio/Flutter/Flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#28     _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:263)
+#29     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:151)
+```
+
+## flutter doctor
+
+```
+[-] Flutter (on Microsoft Windows [Version 6.1.7601], locale en-US, channel master)
+    • Flutter at C:\Users\Braulio\Flutter\Flutter
+    • Framework revision acdbe45670 (3 months ago), 2017-10-27 18:23:50 -0700
+    • Engine revision ec19da1c80
+    • Tools Dart version 1.25.0-dev.11.0
+    ✗ Downloaded executables cannot execute on host (see https://github.com/flutter/flutter/issues/6207 for more information)
+
+[✓] Android toolchain - develop for Android devices (Android SDK 26.0.3)
+    • Android SDK at C:\Users\Braulio\AppData\Local\Android\sdk
+    • Platform android-26, build-tools 26.0.3
+    • Java binary at: C:\Program Files\Android\AndroidStudio3.0\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b01)
+
+[-] Android Studio (version 2.3)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    ✗ Unable to find bundled Java version.
+    • Try updating or re-installing Android Studio.
+
+[✓] Android Studio (version 3.0)
+    • Android Studio at C:\Program Files\Android\AndroidStudio3.0
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b01)
+
+[✓] Connected devices
+    • None
+
+```

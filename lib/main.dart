@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:menu/ui/customAppBar.dart';
-import 'package:menu/ui/pager.dart';
+import 'package:menu/screens/customAppBar.dart';
+import 'package:menu/screens/pager.dart';
 
 void main() => runApp(new MyHomePage(title: 'Menu'));
 
