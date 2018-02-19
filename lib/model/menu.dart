@@ -82,4 +82,10 @@ class Menu{
 //        price: "\$3"
 //    ),
   ];
+
+  static Food getFoodById(id) {
+    return menu
+        .where((p) => p.id == id)
+        .first;
+  }
 }
