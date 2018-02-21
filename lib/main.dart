@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-      routes: <String, WidgetBuilder>{ '/detail': (_) => new DetailPage("1")},
+      routes: <String, WidgetBuilder>{ '/screens/details': (_) => new DetailPage("1")},
     );
   }
 }
