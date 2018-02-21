@@ -10,8 +10,17 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Center(
-      child: new FoodImage(food: food)
+    return new Scaffold(
+      body: new Center(
+        child: new Hero(
+          tag: 'icon-${food.id}',
+          child: new Image(
+            image: new AssetImage(food.image),
+            height: 150.0,
+            width: 150.0,
+          ),
+        ),
+      ),
     );
   }
 }

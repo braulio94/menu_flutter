@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menu/screens/customAppBar.dart';
+import 'package:menu/screens/details.dart';
 import 'package:menu/screens/pager.dart';
 
 void main() => runApp(new MyHomePage(title: 'Menu'));
@@ -28,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+      routes: <String, WidgetBuilder>{ '/detail': (_) => new DetailPage("1")},
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
+import 'package:menu/screens/details.dart';
 import 'package:menu/view/animated_circle.dart';
 import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
@@ -77,7 +78,11 @@ class _MenuPagerState extends State<MenuPager> {
                                             .of(context)
                                             .size
                                             .height),
-                                        child: new ItemCard(food: food),
+                                        child: new GestureDetector(
+                                          behavior: HitTestBehavior.opaque,
+                                            onTap: () => Navigator.of(context).push(new PageRouteBuilder(pageBuilder: (_, __, ___) => new DetailPage(food.id))),
+                                          child: new ItemCard(food: food),
+                                        )
                                       ),
                                     ),
                                   )
