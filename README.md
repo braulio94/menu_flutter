@@ -15,11 +15,11 @@
 - [x] ~~Customize card shadow~~
 - [x] ~~apply different text font~~
 - [x] ~~create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)~~
+- [ ] navigate to secondary screen with hero animation
+- [ ] Increment & decrement quantities
+- [ ] Counter add actual items selected in a list
 - [ ] Make cards slide animation
 - [ ] create application [architecture](https://github.com/brianegan/flutter_architecture_samples)
-- [ ] Counter add actual items selected in a list
-- [ ] Increment & decrement quantities
-- [ ] navigate to secondary screen with hero animation
 
 
 ### Getting Started
