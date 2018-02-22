@@ -80,7 +80,7 @@ class _MenuPagerState extends State<MenuPager> {
                                             .height),
                                         child: new GestureDetector(
                                           behavior: HitTestBehavior.opaque,
-                                            onTap: () => Navigator.of(context).push(new PageRouteBuilder(pageBuilder: (_, __, ___) => new DetailPage(food.id))),
+                                            onTap: () => Navigator.pushNamed(context, DetailPage.routeName),
                                           child: new ItemCard(food: food),
                                         )
                                       ),

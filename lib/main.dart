@@ -3,7 +3,18 @@ import 'package:menu/screens/customAppBar.dart';
 import 'package:menu/screens/details.dart';
 import 'package:menu/screens/pager.dart';
 
-void main() => runApp(new MyHomePage(title: 'Menu'));
+void main() => runApp(
+    new MaterialApp(
+      title: 'Menu',
+      home: new MyHomePage(title: 'MENU',),
+      routes: routes,
+    )
+);
+
+
+var routes = <String, WidgetBuilder> {
+  DetailPage.routeName: (BuildContext context) => new DetailPage(),
+};
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -18,18 +29,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        title: 'Menu',
-        home: new Scaffold(
-          body: new Stack(
-            alignment: AlignmentDirectional.topEnd,
-            children: <Widget>[
-              new MenuPager(),
-              new CustomAppBar(),
-            ],
-          ),
-        ),
-      routes: <String, WidgetBuilder>{ '/screens/details': (_) => new DetailPage("1")},
+    return new Scaffold(
+      body: new Stack(
+        alignment: AlignmentDirectional.topEnd,
+        children: <Widget>[
+          new MenuPager(),
+          new CustomAppBar(),
+        ],
+      ),
     );
   }
 }
