@@ -75,7 +75,7 @@ class _MenuPagerState extends State<MenuPager> {
                                   child: new Padding(
                                     padding: const EdgeInsets.only(top: 50.0),
                                     child: new Card(
-                                      elevation: 7.0,
+                                      elevation: 0.0,
                                       child: new Container(
                                         height: math.min(300.0, MediaQuery
                                             .of(context)
