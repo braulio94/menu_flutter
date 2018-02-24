@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:menu/Routes.dart';
 import 'package:menu/screens/customAppBar.dart';
-import 'package:menu/screens/details.dart';
 import 'package:menu/screens/pager.dart';
 
-void main() => runApp(
-    new MaterialApp(
-      title: 'Menu',
-      home: new MyHomePage(title: 'MENU',),
-      routes: routes,
-    )
-);
-
-
-var routes = <String, WidgetBuilder> {
-  DetailPage.routeName: (BuildContext context) => new DetailPage(),
-};
+void main() {
+  Routes.initRoutes();
+  runApp(
+      new MaterialApp(
+        title: 'MENU',
+        home: new MyHomePage(),
+      )
+  );
+}
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();

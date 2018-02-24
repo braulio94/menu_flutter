@@ -1,4 +1,6 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:menu/Routes.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
 import 'package:menu/screens/details.dart';
@@ -7,6 +9,7 @@ import 'package:menu/view/rectangle_indicator.dart';
 import 'package:menu/view/foodImage.dart';
 import 'package:menu/view/itemCard.dart';
 import 'package:menu/view/shadows.dart';
+import 'package:menu/main.dart' as main;
 import 'dart:math' as math;
 
 class MenuPager extends StatefulWidget {
@@ -17,7 +20,7 @@ class MenuPager extends StatefulWidget {
 
 class _MenuPagerState extends State<MenuPager> {
 
-  final PageController controller = new PageController(viewportFraction: 0.75);
+  final PageController controller = new PageController();
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   final int _counter = 0;
 
@@ -80,7 +83,11 @@ class _MenuPagerState extends State<MenuPager> {
                                             .height),
                                         child: new GestureDetector(
                                           behavior: HitTestBehavior.opaque,
-                                            onTap: () => Navigator.pushNamed(context, DetailPage.routeName),
+                                            onTap: () => Routes.navigateTo(
+                                                context,
+                                                '/detail/${food.id}',
+                                                transition: TransitionType.fadeIn
+                                            ),
                                           child: new ItemCard(food: food),
                                         )
                                       ),

@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:menu/model/food.dart';
+import 'package:menu/model/menu.dart';
 
 class DetailPage extends StatelessWidget {
 
-  static String routeName = "package:menu/screens/details/DetailPage";
+  final Food food;
+  DetailPage(String id) : food = Menu.getFoodById(id);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Center(
-        child: new Text('Other Page'),
+        child: new Hero(
+          tag: 'icon-${food.id}',
+          child: new Image(
+            image: new AssetImage(food.image),
+            height: 150.0,
+            width: 150.0,
+          ),
+        ),
       ),
     );
   }
