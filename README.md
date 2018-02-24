@@ -15,7 +15,7 @@
 - [x] ~~Customize card shadow~~
 - [x] ~~apply different text font~~
 - [x] ~~create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)~~
-- [ ] navigate to secondary screen with hero animation
+- [x] ~~navigate to secondary screen with hero animation~~
 - [ ] Increment & decrement quantities
 - [ ] Counter add actual items selected in a list
 - [ ] Make cards slide animation
