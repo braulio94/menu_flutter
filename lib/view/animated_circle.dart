@@ -7,18 +7,20 @@ import 'package:menu/view/cartButton.dart';
 class AnimatedCircle extends StatefulWidget {
 
   final int counter;
+  var alignment;
 
-  AnimatedCircle(this.counter);
+  AnimatedCircle(this.counter, this.alignment);
 
   @override
-  _AnimatedCircleState createState() => new _AnimatedCircleState(counter);
+  _AnimatedCircleState createState() => new _AnimatedCircleState(counter, alignment);
 }
 
 class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStateMixin{
 
   AnimationController _controller;
   int counter;
-  _AnimatedCircleState(this.counter);
+  var alignment;
+  _AnimatedCircleState(this.counter, this.alignment);
 
   @override
   void initState() {
@@ -50,6 +52,7 @@ class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStat
   Widget build(BuildContext context) {
     timeDilation = 1.0;
     return new Container(
+      alignment: alignment,
       margin: const EdgeInsets.only(top: 35.5, right: 10.0, bottom: 120.0),
       child: new Stack(
         children: <Widget>[

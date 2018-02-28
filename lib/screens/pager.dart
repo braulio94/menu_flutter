@@ -17,10 +17,14 @@ class MenuPager extends StatefulWidget {
   _MenuPagerState createState() => new _MenuPagerState();
 }
 
+const double _kViewportFraction = 0.75;
 
 class _MenuPagerState extends State<MenuPager> {
 
-  final PageController controller = new PageController();
+  final PageController _backgroundPageController = new PageController(
+      viewportFraction: _kViewportFraction);
+  final PageController _pageController = new PageController();
+  ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   final int _counter = 0;
 
@@ -33,6 +37,84 @@ class _MenuPagerState extends State<MenuPager> {
     const Color.fromRGBO(231, 222, 211, 1.0),
     const Color.fromRGBO(217, 214, 198, 1.0)
   ];
+
+  _contentWidget(Food food, Alignment alignment, double resize) {
+    return new Stack(
+      children: <Widget>[
+        new Center(
+          child: new Container(
+            alignment: alignment,
+            width: 300.0 * resize,
+            height: 400.0 * resize,
+            child: new Stack(
+              children: <Widget>[
+                shadow2,
+                shadow1,
+                new Center(
+                  child: new Padding(
+                    padding: const EdgeInsets.only(top: 50.0),
+                    child: new Card(
+                      elevation: 0.0,
+                      child: new Container(
+                        height: math.min(300.0, MediaQuery
+                            .of(context)
+                            .size
+                            .height),
+                        child: new GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () =>
+                              Routes.navigateTo(
+                                  context,
+                                  '/detail/${food.id}',
+                                  transition: TransitionType.fadeIn
+                              ),
+                          child: new ItemCard(food: food),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                new Align(
+                    alignment: FractionalOffset.topCenter,
+                    child: new FoodImage(food: food)
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Iterable<Widget> _buildBackgroundPages() {
+    final List<Widget> backgroundPages = <Widget>[];
+    for (int index = 0; index < 10; index++) {
+      var alignment = Alignment.center.add(new Alignment(
+          (selectedIndex.value - index) * _kViewportFraction, 0.0));
+      backgroundPages.add(new Container(
+        child: new AnimatedCircle(_counter, alignment),
+      ));
+    }
+    return backgroundPages;
+  }
+
+  Iterable<Widget> _buildPages() {
+    final List<Widget> pages = <Widget>[];
+    for (int index = 0; index < 10; index++) {
+      var alignment = Alignment.center.add(new Alignment(
+          (selectedIndex.value - index) * _kViewportFraction, 0.0));
+      var resizeFactor = (1 -
+          (((selectedIndex.value - index).abs() * 0.2).clamp(0.0, 1.0)));
+      pages.add(
+          _contentWidget(
+            Menu.menu[index],
+            alignment,
+            resizeFactor,
+          )
+      );
+    }
+    return pages;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,66 +131,42 @@ class _MenuPagerState extends State<MenuPager> {
         new Align(alignment: Alignment.bottomCenter,
             child: new Padding(padding: const EdgeInsets.only(bottom: 50.0),
                 child: new RectangleIndicator(
-                    controller, Menu.menu.length, 6.0, Colors.grey[400],
+                    _pageController, Menu.menu.length, 6.0, Colors.grey[400],
                     Colors.black))),
         new Positioned.fill(
-            child: new PageView(
-                controller: controller,
-                onPageChanged: (index) {
-                  setState(() {
-                    _backColor =
-                    colors[new math.Random().nextInt(colors.length)];
-                  });
-                },
-                children: Menu.menu.map((Food food) {
-                  return new Stack(
-                    children: <Widget>[
-                      new Center(
-                        child: new Container(
-                          width: 250.0,
-                          height: 400.0,
-                          child: new Stack(
-                            children: <Widget>[
-                              shadow2,
-                              shadow1,
-                              new Center(
-                                  child: new Padding(
-                                    padding: const EdgeInsets.only(top: 50.0),
-                                    child: new Card(
-                                      elevation: 0.0,
-                                      child: new Container(
-                                        height: math.min(300.0, MediaQuery
-                                            .of(context)
-                                            .size
-                                            .height),
-                                        child: new GestureDetector(
-                                          behavior: HitTestBehavior.opaque,
-                                            onTap: () => Routes.navigateTo(
-                                                context,
-                                                '/detail/${food.id}',
-                                                transition: TransitionType.fadeIn
-                                            ),
-                                          child: new ItemCard(food: food),
-                                        )
-                                      ),
-                                    ),
-                                  )
-                              ),
-                              new Align(
-                                  alignment: FractionalOffset.topCenter,
-                                  child: new FoodImage(food: food)
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      new AnimatedCircle(_counter),
-                    ],
-                  );
-                }).toList()
-            )
+          child: new PageView(
+            controller: _backgroundPageController,
+            onPageChanged: (index) {
+              setState(() {
+                _backColor =
+                colors[new math.Random().nextInt(colors.length)];
+              });
+            },
+            children: _buildPages(),
+          ),
+        ),
+        new NotificationListener<ScrollNotification>(
+          onNotification: (ScrollNotification notification) {
+            if (notification.depth == 0 &&
+                notification is ScrollUpdateNotification) {
+              selectedIndex.value = _pageController.page;
+              if (_backgroundPageController.page != _pageController.page) {
+                _backgroundPageController.position
+                    .jumpToWithoutSettling(_pageController.position.pixels *
+                    _kViewportFraction); // ignore: deprecated_member_use
+              }
+              setState(() {});
+            }
+            return false;
+          },
+          child: new PageView(
+            controller: _pageController,
+            children: _buildBackgroundPages(),
+          ),
         ),
       ],
     );
   }
+
+
 }

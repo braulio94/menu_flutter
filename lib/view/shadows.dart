@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final shadow1 = new Center(
   child: new Container(
     height: 0.0,
-    width: 150.0,
+    width: 100.0,
     margin: const EdgeInsets.only(top: 250.0),
     decoration: new BoxDecoration(
         shape: BoxShape.rectangle,
