@@ -16,9 +16,9 @@
 - [x] ~~apply different text font~~
 - [x] ~~create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)~~
 - [x] ~~navigate to secondary screen with hero animation~~
+- [x] ~~Make cards slide animation~~
 - [ ] Increment & decrement quantities
 - [ ] Counter add actual items selected in a list
-- [ ] Make cards slide animation
 - [ ] create application [architecture](https://github.com/brianegan/flutter_architecture_samples)
 
 
