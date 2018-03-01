@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:menu/Routes.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
+import 'package:menu/view/customAppBar.dart';
 import 'package:menu/screens/details.dart';
 import 'package:menu/view/animated_circle.dart';
 import 'package:menu/view/rectangle_indicator.dart';
@@ -128,6 +129,7 @@ class _MenuPagerState extends State<MenuPager> {
         new Positioned.fill(bottom: screenHeight / 2,
             child: new Container(
                 decoration: new BoxDecoration(color: _backColor))),
+        new CustomAppBar(),
         new Align(alignment: Alignment.bottomCenter,
             child: new Padding(padding: const EdgeInsets.only(bottom: 50.0),
                 child: new RectangleIndicator(

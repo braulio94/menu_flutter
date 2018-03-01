@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menu/Routes.dart';
-import 'package:menu/screens/customAppBar.dart';
+import 'package:menu/view/customAppBar.dart';
 import 'package:menu/screens/pager.dart';
 
 void main() {
@@ -28,7 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
         alignment: AlignmentDirectional.topEnd,
         children: <Widget>[
           new MenuPager(),
-          new CustomAppBar(),
         ],
       ),
     );
