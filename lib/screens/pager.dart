@@ -87,7 +87,7 @@ class _MenuPagerState extends State<MenuPager> {
     );
   }
 
-  Iterable<Widget> _buildBackgroundPages() {
+  Iterable<Widget> _buildForegroundPages() {
     final List<Widget> backgroundPages = <Widget>[];
     for (int index = 0; index < 10; index++) {
       var alignment = Alignment.center.add(new Alignment(
@@ -163,7 +163,7 @@ class _MenuPagerState extends State<MenuPager> {
           },
           child: new PageView(
             controller: _pageController,
-            children: _buildBackgroundPages(),
+            children: _buildForegroundPages(),
           ),
         ),
       ],
