@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:menu/Routes.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
+import 'package:menu/view/cartButton.dart';
 import 'package:menu/view/customAppBar.dart';
 import 'package:menu/screens/details.dart';
 import 'package:menu/view/animated_circle.dart';
@@ -88,15 +89,13 @@ class _MenuPagerState extends State<MenuPager> {
   }
 
   Iterable<Widget> _buildForegroundPages() {
-    final List<Widget> backgroundPages = <Widget>[];
+    final List<Widget> foregroundPages = <Widget>[];
     for (int index = 0; index < 10; index++) {
       var alignment = Alignment.center.add(new Alignment(
           (selectedIndex.value - index) * _kViewportFraction, 0.0));
-      backgroundPages.add(new Container(
-        child: new AnimatedCircle(_counter, alignment),
-      ));
+      foregroundPages.add(new AnimatedCircle(_counter, alignment));
     }
-    return backgroundPages;
+    return foregroundPages;
   }
 
   Iterable<Widget> _buildPages() {
@@ -135,17 +134,15 @@ class _MenuPagerState extends State<MenuPager> {
                 child: new RectangleIndicator(
                     _pageController, Menu.menu.length, 6.0, Colors.grey[400],
                     Colors.black))),
-        new Positioned.fill(
-          child: new PageView(
-            controller: _backgroundPageController,
-            onPageChanged: (index) {
-              setState(() {
-                _backColor =
-                colors[new math.Random().nextInt(colors.length)];
-              });
-            },
-            children: _buildPages(),
-          ),
+        new PageView(
+          controller: _backgroundPageController,
+          onPageChanged: (index) {
+            setState(() {
+              _backColor =
+              colors[new math.Random().nextInt(colors.length)];
+            });
+          },
+          children: _buildPages(),
         ),
         new NotificationListener<ScrollNotification>(
           onNotification: (ScrollNotification notification) {
@@ -154,8 +151,9 @@ class _MenuPagerState extends State<MenuPager> {
               selectedIndex.value = _pageController.page;
               if (_backgroundPageController.page != _pageController.page) {
                 _backgroundPageController.position
+                    // ignore: deprecated_member_use
                     .jumpToWithoutSettling(_pageController.position.pixels *
-                    _kViewportFraction); // ignore: deprecated_member_use
+                    _kViewportFraction);
               }
               setState(() {});
             }

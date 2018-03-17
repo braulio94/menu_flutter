@@ -61,27 +61,24 @@ class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStat
           ),
           new Align(
             alignment: FractionalOffset.bottomCenter,
-            child: new Container(
-              color: Colors.blue,
-              child: new SizedBox(
-                width: 70.0,
-                height: 50.0,
-                child: new MaterialButton(
-                  highlightColor: Colors.grey[400],
-                  onPressed: () {
-                    setState(() {
-                      counter = 0;
-                      _playAnimation();
-                    });
-                  },
-                  elevation: counter == 0 ? 10.0 : 5.0,
-                  color: counter == 0 ? Colors.grey[350] : Colors.amber,
-                  child: new Icon(
-                      const IconData(
-                          0xe807,
-                          fontFamily: 'fontello'), size: 20.0,
-                      color: Colors.white),
-                ),
+            child: new SizedBox(
+              width: 70.0,
+              height: 50.0,
+              child: new MaterialButton(
+                highlightColor: Colors.grey[400],
+                onPressed: () {
+                  setState(() {
+                    counter = 0;
+                    _playAnimation();
+                  });
+                },
+                elevation: counter == 0 ? 10.0 : 5.0,
+                color: counter == 0 ? Colors.grey[350] : Colors.amber,
+                child: new Icon(
+                    const IconData(
+                        0xe807,
+                        fontFamily: 'fontello'), size: 20.0,
+                    color: Colors.white),
               ),
             ),
           ),
