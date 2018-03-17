@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:menu/Routes.dart';
 import 'package:menu/view/customAppBar.dart';
 import 'package:menu/screens/pager.dart';
@@ -8,18 +9,17 @@ void main() {
   runApp(
       new MaterialApp(
         title: 'MENU',
-        home: new MyHomePage(),
+        home: new MenuHomePage(),
       )
   );
 }
 
-class MyHomePage extends StatefulWidget {
+class MenuHomePage extends StatelessWidget {
 
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+  MenuHomePage(){
+    SystemChrome.setPreferredOrientations(
+        <DeviceOrientation>[DeviceOrientation.portraitUp]);
+  }
 
   @override
   Widget build(BuildContext context) {
