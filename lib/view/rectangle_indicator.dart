@@ -11,7 +11,7 @@ class RectangleIndicator extends StatefulWidget {
       this.selectedColor);
 
   RectangleIndicator.withIntroduction(this.size, this.radius, this.baseColor,
-      this.selectedColor, {this.pagerController: null});
+      this.selectedColor, {this.pagerController});
 
   @override
   State<StatefulWidget> createState() =>
