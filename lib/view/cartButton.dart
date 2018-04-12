@@ -17,6 +17,7 @@ class _CartButtonState extends State<CartButton> {
 
   @override
   void initState() {
+    super.initState();
     counter = 1;
   }
 
