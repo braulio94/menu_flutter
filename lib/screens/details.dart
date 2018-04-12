@@ -9,9 +9,9 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black87,),
           onPressed: (){
 
@@ -20,11 +20,11 @@ class DetailPage extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.white,
       ),
-      body: new Center(
-        child: new Hero(
+      body: Center(
+        child: Hero(
           tag: 'icon-${food.id}',
-          child: new Image(
-            image: new AssetImage(food.image),
+          child: Image(
+            image: AssetImage(food.image),
             height: 150.0,
             width: 150.0,
           ),

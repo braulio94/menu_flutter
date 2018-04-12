@@ -12,7 +12,7 @@ class AnimatedCircle extends StatefulWidget {
   AnimatedCircle(this.counter, this.alignment, this.onTap);
 
   @override
-  _AnimatedCircleState createState() => new _AnimatedCircleState(counter, alignment, onTap);
+  _AnimatedCircleState createState() => _AnimatedCircleState(counter, alignment, onTap);
 }
 
 class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStateMixin{
@@ -29,7 +29,7 @@ class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStat
   void initState() {
     super.initState();
     counter = 1;
-    _controller = new AnimationController(
+    _controller =  AnimationController(
         duration: const Duration(milliseconds: 700),
         vsync: this
     );
@@ -54,10 +54,10 @@ class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStat
   @override
   Widget build(BuildContext context) {
     timeDilation = 1.0;
-    return new Container(
+    return  Container(
       alignment: alignment,
       margin: const EdgeInsets.only(top: 35.5, right: 10.0, bottom: 120.0),
-      child: new StaggerAnimation(controller: _controller.view),
+      child:  StaggerAnimation(controller: _controller.view),
     );
   }
 }
@@ -72,37 +72,37 @@ class StaggerAnimation extends StatelessWidget {
 
   StaggerAnimation({Key key, this.controller}):
 
-        opacity = new Tween<double>(
+        opacity =  Tween<double>(
           begin: 0.0,
           end: 1.0,
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.200, curve: Curves.ease))),
+        ).animate( CurvedAnimation(parent: controller, curve:  Interval(0.0, 0.200, curve: Curves.ease))),
 
-        dx = new Tween<double>(
+        dx =  Tween<double>(
             end: 15.0,
             begin: 70.0
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
+        ).animate( CurvedAnimation(parent: controller, curve:  Interval(0.0, 0.500, curve: Curves.ease))),
 
-        dy = new Tween<double>(
+        dy =  Tween<double>(
             end: 15.0,
             begin: 70.0
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
+        ).animate( CurvedAnimation(parent: controller, curve:  Interval(0.0, 0.500, curve: Curves.ease))),
 
-        alignment = new AlignmentTween(
+        alignment =  AlignmentTween(
           begin: Alignment.bottomCenter,
           end: Alignment.topRight,
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
+        ).animate( CurvedAnimation(parent: controller, curve:  Interval(0.0, 0.500, curve: Curves.ease))),
 
         super(key: key);
 
   Widget _buildAnimation(BuildContext context, Widget child){
-    return new Container(
+    return  Container(
         alignment: alignment.value,
-        child: new Opacity(
+        child:  Opacity(
           opacity: opacity.value,
-          child: new Container(
+          child:  Container(
             width: dx.value,
             height: dy.value,
-            decoration: new BoxDecoration(
+            decoration:  BoxDecoration(
               color: Colors.amber,
               shape: BoxShape.circle,
             ),
@@ -112,7 +112,7 @@ class StaggerAnimation extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    return new AnimatedBuilder(
+    return  AnimatedBuilder(
       builder: _buildAnimation,
       animation: controller,
     );

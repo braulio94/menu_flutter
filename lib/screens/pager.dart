@@ -13,17 +13,17 @@ import 'dart:math' as math;
 
 class MenuPager extends StatefulWidget {
   @override
-  _MenuPagerState createState() => new _MenuPagerState();
+  _MenuPagerState createState() => _MenuPagerState();
 }
 
 const double _kViewportFraction = 0.75;
 
 class _MenuPagerState extends State<MenuPager> {
 
-  final PageController _backgroundPageController = new PageController(
+  final PageController _backgroundPageController = PageController(
       );
-  final PageController _pageController = new PageController(viewportFraction: _kViewportFraction);
-  ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
+  final PageController _pageController = PageController(viewportFraction: _kViewportFraction);
+  ValueNotifier<double> selectedIndex = ValueNotifier<double>(0.0);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   final int _counter = 0;
   VoidCallback _callback;
@@ -39,28 +39,28 @@ class _MenuPagerState extends State<MenuPager> {
   ];
 
   _contentWidget(Food food, Alignment alignment, double resize) {
-    return new Stack(
+    return Stack(
       children: <Widget>[
-        new Center(
-          child: new Container(
+        Center(
+          child: Container(
             alignment: alignment,
             width: 300.0 * resize,
             height: 400.0 * resize,
-            child: new Stack(
+            child: Stack(
               children: <Widget>[
                 shadow2,
                 shadow1,
-                new Center(
-                  child: new Padding(
+                Center(
+                  child: Padding(
                     padding: const EdgeInsets.only(top: 50.0),
-                    child: new Card(
+                    child: Card(
                       elevation: 0.0,
-                      child: new Container(
+                      child: Container(
                         height: math.min(300.0, MediaQuery
                             .of(context)
                             .size
                             .height),
-                        child: new GestureDetector(
+                        child: GestureDetector(
                           behavior: HitTestBehavior.opaque,
                           onTap: () =>
                               Routes.navigateTo(
@@ -68,27 +68,27 @@ class _MenuPagerState extends State<MenuPager> {
                                   '/detail/${food.id}',
                                   transition: TransitionType.fadeIn
                               ),
-                          child: new ItemCard(food: food),
+                          child: ItemCard(food: food),
                         ),
                       ),
                     ),
                   ),
                 ),
-                new Align(
+                Align(
                     alignment: FractionalOffset.topCenter,
-                    child: new FoodImage(food: food),
+                    child: FoodImage(food: food),
                 ),
-                new Align(
+                Align(
                   alignment: FractionalOffset.bottomCenter,
-                  child: new SizedBox(
+                  child: SizedBox(
                     width: 70.0,
                     height: 50.0,
-                    child: new MaterialButton(
+                    child: MaterialButton(
                       highlightColor: Colors.grey[400],
                       onPressed: _callback,
                       elevation: _counter == 0 ? 10.0 : 5.0,
                       color: _counter == 0 ? Colors.grey[350] : Colors.amber,
-                      child: new Icon(
+                      child: Icon(
                           const IconData(
                               0xe807,
                               fontFamily: 'fontello'), size: 20.0,
@@ -107,7 +107,7 @@ class _MenuPagerState extends State<MenuPager> {
   Iterable<Widget> _buildPages() {
     final List<Widget> pages = <Widget>[];
     for (int index = 0; index < 10; index++) {
-      var alignment = Alignment.center.add(new Alignment(
+      var alignment = Alignment.center.add(Alignment(
           (selectedIndex.value - index) * _kViewportFraction, 0.0));
       var resizeFactor = (1 -
           (((selectedIndex.value - index).abs() * 0.2).clamp(0.0, 1.0)));
@@ -129,18 +129,18 @@ class _MenuPagerState extends State<MenuPager> {
         .size
         .height;
 
-    return new Stack(
+    return Stack(
       children: <Widget>[
-        new Positioned.fill(bottom: screenHeight / 2,
-            child: new Container(
-                decoration: new BoxDecoration(color: _backColor))),
-        new CustomAppBar(),
-        new Align(alignment: Alignment.bottomCenter,
-            child: new Padding(padding: const EdgeInsets.only(bottom: 50.0),
-                child: new RectangleIndicator(
+        Positioned.fill(bottom: screenHeight / 2,
+            child: Container(
+                decoration: BoxDecoration(color: _backColor))),
+        CustomAppBar(),
+        Align(alignment: Alignment.bottomCenter,
+            child: Padding(padding: const EdgeInsets.only(bottom: 50.0),
+                child: RectangleIndicator(
                     _backgroundPageController, Menu.menu.length, 6.0, Colors.grey[400],
                     Colors.black))),
-        new PageView.builder(
+        PageView.builder(
           itemCount: Menu.menu.length,
           itemBuilder: (BuildContext context, int itemCount){
             return Container();
@@ -149,11 +149,11 @@ class _MenuPagerState extends State<MenuPager> {
           onPageChanged: (index) {
             setState(() {
               _backColor =
-              colors[new math.Random().nextInt(colors.length)];
+              colors[math.Random().nextInt(colors.length)];
             });
           },
         ),
-        new NotificationListener<ScrollNotification>(
+        NotificationListener<ScrollNotification>(
           onNotification: (ScrollNotification notification) {
             if (notification.depth == 0 &&
                 notification is ScrollUpdateNotification) {
@@ -168,12 +168,12 @@ class _MenuPagerState extends State<MenuPager> {
             }
             return false;
           },
-          child: new PageView(
+          child: PageView(
             controller: _pageController,
             children:_buildPages(),
           ),
         ),
-        new AnimatedCircle(_counter, Alignment.center, _callback),
+        AnimatedCircle(_counter, Alignment.center, _callback),
       ],
     );
   }

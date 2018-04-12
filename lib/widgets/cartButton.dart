@@ -7,7 +7,7 @@ class CartButton extends StatefulWidget {
   CartButton(this.counter);
 
   @override
-  _CartButtonState createState() => new _CartButtonState(counter);
+  _CartButtonState createState() => _CartButtonState(counter);
 }
 
 class _CartButtonState extends State<CartButton> {
@@ -23,10 +23,10 @@ class _CartButtonState extends State<CartButton> {
 
   @override
   Widget build(BuildContext context) {
-    return new SizedBox(
+    return SizedBox(
       width: 70.0,
       height: 50.0,
-      child: new MaterialButton(
+      child: MaterialButton(
         highlightColor: Colors.grey[900],
         onPressed: (){
           setState((){
@@ -35,7 +35,7 @@ class _CartButtonState extends State<CartButton> {
         },
         elevation: counter == 0 ? 10.0 : 5.0,
         color: counter == 0 ? Colors.grey[350] : Colors.amber,
-        child: new Icon(
+        child: Icon(
             const IconData(
                 0xe807,
                 fontFamily: 'fontello'), size: 20.0,
