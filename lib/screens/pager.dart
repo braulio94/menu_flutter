@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:menu/routes.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
-import 'package:menu/widgets/customAppBar.dart';
+import 'package:menu/widgets/custom_app_bar.dart';
 import 'package:menu/widgets/animated_circle.dart';
 import 'package:menu/widgets/rectangle_indicator.dart';
-import 'package:menu/widgets/foodImage.dart';
-import 'package:menu/widgets/itemCard.dart';
+import 'package:menu/widgets/food_image.dart';
+import 'package:menu/widgets/item_card.dart';
 import 'package:menu/widgets/shadows.dart';
 import 'dart:math' as math;
 
