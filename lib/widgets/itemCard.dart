@@ -13,7 +13,7 @@ class ItemCard extends StatelessWidget {
     child: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Text(food.name, style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w400, fontFamily: 'Dosis')),
+          new Text(food.name, style: const TextStyle(fontSize: 21.0, fontWeight: FontWeight.w400, fontFamily: 'Dosis')),
           new DecoratedBox(decoration: new BoxDecoration(
               borderRadius: new BorderRadius.circular(30.0)),
               child: new ClipRRect(
@@ -33,8 +33,12 @@ class ItemCard extends StatelessWidget {
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new IconButton(icon: new Icon(Icons.remove),
-                    onPressed: null),
+                new IconButton(
+                    icon: new Icon(Icons.remove),
+                    onPressed: () {
+                      print('decrement');
+                    }
+                ),
                 new Container(
                   decoration: new BoxDecoration(
                     border: new Border.all(
@@ -54,7 +58,9 @@ class ItemCard extends StatelessWidget {
                   ),
                 ),
                 new IconButton(icon: new Icon(Icons.add),
-                    onPressed: null),
+                    onPressed: (){
+                      print('increment');
+                    }),
               ],
             ),
           )

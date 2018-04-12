@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation ;
-import 'package:menu/view/cartButton.dart';
 
 class AnimatedCircle extends StatefulWidget {
 
   final int counter;
   var alignment;
+  final GestureTapCallback onTap;
 
-  AnimatedCircle(this.counter, this.alignment);
+  AnimatedCircle(this.counter, this.alignment, this.onTap);
 
   @override
-  _AnimatedCircleState createState() => new _AnimatedCircleState(counter, alignment);
+  _AnimatedCircleState createState() => new _AnimatedCircleState(counter, alignment, onTap);
 }
 
 class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStateMixin{
@@ -20,7 +20,10 @@ class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStat
   AnimationController _controller;
   int counter;
   var alignment;
-  _AnimatedCircleState(this.counter, this.alignment);
+  final GestureTapCallback onTap;
+
+  _AnimatedCircleState(this.counter, this.alignment, this.onTap);
+
 
   @override
   void initState() {
@@ -54,36 +57,7 @@ class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStat
     return new Container(
       alignment: alignment,
       margin: const EdgeInsets.only(top: 35.5, right: 10.0, bottom: 120.0),
-      child: new Stack(
-        children: <Widget>[
-          new StaggerAnimation(
-            controller: _controller.view,
-          ),
-          new Align(
-            alignment: FractionalOffset.bottomCenter,
-            child: new SizedBox(
-              width: 70.0,
-              height: 50.0,
-              child: new MaterialButton(
-                highlightColor: Colors.grey[400],
-                onPressed: () {
-                  setState(() {
-                    counter = 0;
-                    _playAnimation();
-                  });
-                },
-                elevation: counter == 0 ? 10.0 : 5.0,
-                color: counter == 0 ? Colors.grey[350] : Colors.amber,
-                child: new Icon(
-                    const IconData(
-                        0xe807,
-                        fontFamily: 'fontello'), size: 20.0,
-                    color: Colors.white),
-              ),
-            ),
-          ),
-        ],
-      ),
+      child: new StaggerAnimation(controller: _controller.view),
     );
   }
 }

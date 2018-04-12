@@ -8,11 +8,6 @@ class Menu {
         name: "LASAGNE",
         price: "\$12"),
     Food(
-        id: "2",
-        image: "assets/images/menu3.png",
-        name: "TORTELLINI WITH BROCCOLI",
-        price: "\$8"),
-    Food(
         id: "3",
         image: "assets/images/menu11.png",
         name: "MUSHROOM RISOTTO",
@@ -27,6 +22,11 @@ class Menu {
         image: "assets/images/menu12.png",
         name: "SEAFOOD PLATTER",
         price: "\$22"),
+    Food(
+        id: "2",
+        image: "assets/images/menu3.png",
+        name: "TORTELLINI WITH BROCCOLI",
+        price: "\$8"),
     Food(
         id: "6",
         image: "assets/images/menu10.png",
@@ -52,24 +52,6 @@ class Menu {
         image: "assets/images/menu8.png",
         name: "CHICKEN SALAD",
         price: "\$43"),
-//    const Food(
-//        id: "11",
-//        image: "assets/images/menu2.png",
-//        name: "",
-//        price: "\$18"
-//    ),
-//    const Food(
-//        id: "12",
-//        image: "assets/images/menu4.png",
-//        name: "",
-//        price: "\$00"
-//    ),
-//    const Food(
-//        id: "13",
-//        image: "assets/images/menu14.png",
-//        name: "",
-//        price: "\$3"
-//    ),
   ];
 
   static Food getFoodById(id) {

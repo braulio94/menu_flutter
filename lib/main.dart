@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:menu/Routes.dart';
-import 'package:menu/view/customAppBar.dart';
+import 'package:menu/routes.dart';
 import 'package:menu/screens/pager.dart';
 
 void main() {
