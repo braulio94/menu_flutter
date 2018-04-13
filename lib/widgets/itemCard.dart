@@ -4,10 +4,11 @@ import 'package:menu/model/food.dart';
 class ItemCard extends StatelessWidget {
   const ItemCard({this.food});
   final Food food;
-  final int _counter = 0;
+
 
   @override
   Widget build(BuildContext context) {
+    int _counter = 0;
     return new Container(
     margin: const EdgeInsets.only(top: 50.0, bottom: 30.0),
     child: new Column(
@@ -37,6 +38,7 @@ class ItemCard extends StatelessWidget {
                     icon: new Icon(Icons.remove),
                     onPressed: () {
                       print('decrement');
+                      _counter--;
                     }
                 ),
                 new Container(
@@ -59,6 +61,7 @@ class ItemCard extends StatelessWidget {
                 ),
                 new IconButton(icon: new Icon(Icons.add),
                     onPressed: (){
+                      _counter++;
                       print('increment');
                     }),
               ],

@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'package:flutter/scheduler.dart' show timeDilation ;
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/routes.dart';
@@ -18,15 +20,40 @@ class MenuPager extends StatefulWidget {
 
 const double _kViewportFraction = 0.75;
 
-class _MenuPagerState extends State<MenuPager> {
+class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
 
-  final PageController _backgroundPageController = new PageController(
-      );
+  final PageController _backgroundPageController = new PageController();
   final PageController _pageController = new PageController(viewportFraction: _kViewportFraction);
   ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   final int _counter = 0;
-  VoidCallback _callback;
+  AnimationController controller;
+
+
+  @override
+  void initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 700),
+        vsync: this
+    );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+
+  Future<Null> playAnimation() async {
+    try {
+      await controller.forward().orCancel;
+      await controller.reverse().orCancel;
+    } on TickerCanceled{
+
+    }
+  }
 
   final List<Color> colors = <Color>[
     const Color.fromRGBO(240, 232, 223, 1.0),
@@ -85,7 +112,9 @@ class _MenuPagerState extends State<MenuPager> {
                     height: 50.0,
                     child: new MaterialButton(
                       highlightColor: Colors.grey[400],
-                      onPressed: _callback,
+                      onPressed: (){
+                        playAnimation();
+                      },
                       elevation: _counter == 0 ? 10.0 : 5.0,
                       color: _counter == 0 ? Colors.grey[350] : Colors.amber,
                       child: new Icon(
@@ -124,6 +153,7 @@ class _MenuPagerState extends State<MenuPager> {
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 1.0;
     final screenHeight = MediaQuery
         .of(context)
         .size
@@ -173,10 +203,12 @@ class _MenuPagerState extends State<MenuPager> {
             children:_buildPages(),
           ),
         ),
-        new AnimatedCircle(_counter, Alignment.center, _callback),
+        new Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.only(top: 35.5,left: 10.0, right: 10.0, bottom: 180.0),
+          child: new StaggerAnimation(controller: controller.view),
+        )
       ],
     );
   }
-
-
 }

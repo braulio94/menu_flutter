@@ -1,66 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart' show timeDilation ;
-
-class AnimatedCircle extends StatefulWidget {
-
-  final int counter;
-  var alignment;
-  final GestureTapCallback onTap;
-
-  AnimatedCircle(this.counter, this.alignment, this.onTap);
-
-  @override
-  _AnimatedCircleState createState() => new _AnimatedCircleState(counter, alignment, onTap);
-}
-
-class _AnimatedCircleState extends State<AnimatedCircle> with TickerProviderStateMixin{
-
-  AnimationController _controller;
-  int counter;
-  var alignment;
-  final GestureTapCallback onTap;
-
-  _AnimatedCircleState(this.counter, this.alignment, this.onTap);
-
-
-  @override
-  void initState() {
-    super.initState();
-    counter = 1;
-    _controller = new AnimationController(
-        duration: const Duration(milliseconds: 700),
-        vsync: this
-    );
-  }
-
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  Future<Null> _playAnimation() async {
-    try {
-      await _controller.forward().orCancel;
-      await _controller.reverse().orCancel;
-    } on TickerCanceled{
-
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    timeDilation = 1.0;
-    return new Container(
-      alignment: alignment,
-      margin: const EdgeInsets.only(top: 35.5, right: 10.0, bottom: 120.0),
-      child: new StaggerAnimation(controller: _controller.view),
-    );
-  }
-}
 
 class StaggerAnimation extends StatelessWidget {
 
@@ -79,12 +17,12 @@ class StaggerAnimation extends StatelessWidget {
 
         dx = new Tween<double>(
             end: 15.0,
-            begin: 70.0
+            begin: 60.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         dy = new Tween<double>(
             end: 15.0,
-            begin: 70.0
+            begin: 60.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
 
         alignment = new AlignmentTween(
