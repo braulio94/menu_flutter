@@ -90,7 +90,6 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
                               Routes.navigateTo(
                                   context,
                                   '/detail/${food.id}',
-                                  transition: TransitionType.fadeIn
                               ),
                           child: new ItemCard(food: food),
                         ),

@@ -12,8 +12,8 @@ class Routes {
         }));
   }
 
-  static void navigateTo(context, String route, {TransitionType transition}) {
-    _router.navigateTo(context, route, transition: transition);
+  static void navigateTo(context, String route) {
+    _router.navigateTo(context, route);
   }
 
 }
