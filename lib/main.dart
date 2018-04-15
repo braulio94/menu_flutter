@@ -6,9 +6,9 @@ import 'package:menu/screens/pager.dart';
 void main() {
   Routes.initRoutes();
   runApp(
-      MaterialApp(
+      new MaterialApp(
         title: 'MENU',
-        home: MenuHomePage(),
+        home: new MenuHomePage(),
       )
   );
 }
@@ -22,14 +22,13 @@ class MenuHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+    return new Scaffold(
+      body: new Stack(
         alignment: AlignmentDirectional.topEnd,
         children: <Widget>[
-          MenuPager(),
+          new MenuPager(),
         ],
       ),
     );
   }
 }
-

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:menu/screens/details.dart';
 
 class Routes {
-  static final Router _router = Router();
+  static final Router _router = new Router();
 
   static void initRoutes() {
-    _router.define("/detail/:id", handler: Handler(
+    _router.define("/detail/:id", handler: new Handler(
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-          return DetailPage(params["id"]);
+          return new DetailPage(params["id"]);
         }));
   }
 

@@ -15,12 +15,12 @@ class RectangleIndicator extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() =>
-      _RectangleIndicatorState(
+      new _RectangleIndicatorState(
           pagerController, size, radius, baseColor, selectedColor);
 
   static RectangleIndicator get(RectangleIndicator indicator,
       PageController pagerController) {
-    return RectangleIndicator(
+    return new RectangleIndicator(
         pagerController, indicator.size, indicator.radius, indicator.baseColor,
         indicator.selectedColor);
   }
@@ -41,14 +41,14 @@ class _RectangleIndicatorState extends State<RectangleIndicator>
   _RectangleIndicatorState(this.pagerController, this.size, radius,
       baseColor, selectedColor) {
     pagerController.addListener(animate);
-    List<Container> icons = List();
+    List<Container> icons = new List();
 
     for (int i = 0; i < size; i++) {
-      icons.add(Container(
-        margin: EdgeInsets.all(4.0),
-        child: _AnimatedRectangleAvatar(
-          controller: AnimationController(
-            duration: Duration(milliseconds: 100),
+      icons.add(new Container(
+        margin: new EdgeInsets.all(4.0),
+        child: new _AnimatedRectangleAvatar(
+          controller: new AnimationController(
+            duration: new Duration(milliseconds: 100),
             vsync: this,
           ),
           baseColor: baseColor,
@@ -58,7 +58,7 @@ class _RectangleIndicatorState extends State<RectangleIndicator>
       ));
     }
 
-    items = Row(
+    items = new Row(
       children: icons,
     );
     getController(items.children.elementAt(0)).forward();
@@ -67,7 +67,7 @@ class _RectangleIndicatorState extends State<RectangleIndicator>
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
+    return new FittedBox(
       alignment: FractionalOffset.bottomCenter,
       child: items,
     );
@@ -133,8 +133,8 @@ class _AnimatedRectangleAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Container selectedRectangle = Container(
-        decoration: BoxDecoration(
+    Container selectedRectangle = new Container(
+        decoration: new BoxDecoration(
           shape: BoxShape.rectangle,
           color: selectedColor,
         ),
@@ -142,19 +142,19 @@ class _AnimatedRectangleAvatar extends StatelessWidget {
         height: radius / 2
     );
 
-    return Stack(
+    return new Stack(
       alignment: FractionalOffset.center,
       children: <Widget>[
-        Container(
+        new Container(
           width: radius * 3,
           height: radius / 2,
-          decoration: BoxDecoration(
+          decoration: new BoxDecoration(
             color: baseColor,
             shape: BoxShape.rectangle,
           ),
         ),
-        ScaleTransition(
-          scale: CurvedAnimation(
+        new ScaleTransition(
+          scale: new CurvedAnimation(
               parent: controller,
               curve: Curves.linear,
               reverseCurve: Curves.bounceOut

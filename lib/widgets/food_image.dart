@@ -9,13 +9,13 @@ class FoodImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-        tag: 'icon-${food.id}',
-        child: Image(
-          image: AssetImage(food.image),
-          height: 150.0,
-          width: 150.0,
-        ),
+    return new Hero(
+      tag: 'icon-${food.id}',
+      child: new Image(
+        image: new AssetImage(food.image),
+        height: 150.0,
+        width: 150.0,
+      ),
     );
   }
 }

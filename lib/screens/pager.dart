@@ -83,10 +83,7 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
                     child: new Card(
                       elevation: 0.0,
                       child: new Container(
-                        height: math.min(300.0, MediaQuery
-                            .of(context)
-                            .size
-                            .height),
+                        height: math.min(300.0, MediaQuery.of(context).size.height),
                         child: new GestureDetector(
                           behavior: HitTestBehavior.opaque,
                           onTap: () =>
@@ -203,11 +200,12 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
             children:_buildPages(),
           ),
         ),
-        new Container(
-          alignment: Alignment.center,
-          margin: const EdgeInsets.only(top: 35.5,left: 10.0, right: 10.0, bottom: 180.0),
-          child: new StaggerAnimation(controller: controller.view),
-        )
+        Positioned.fill(
+          top: 35.0,
+          right: 10.0,
+          bottom: 100.0,
+          child: new StaggerAnimation(controller: controller.view)
+        ),
       ],
     );
   }

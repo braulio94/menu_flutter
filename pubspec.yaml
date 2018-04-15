@@ -4,7 +4,7 @@ description: A new Flutter project.
 dependencies:
   flutter:
     sdk: flutter
-  fluro: "1.1.0"
+  fluro: "^1.3.1"
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
