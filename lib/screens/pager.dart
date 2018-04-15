@@ -47,18 +47,13 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
 
   Future<Null> playAnimation() async {
     try {
+      setState(() {_counter = 0;});
       if(controller.isCompleted){
         controller.reset();
         await controller.forward().orCancel;
       } else {
         await controller.forward().orCancel;
       }
-      setState(() {
-        _counter = 0;
-        //controller.reset();
-      });
-
-      //await controller.reverse().orCancel;
     } on TickerCanceled {
 
     }
