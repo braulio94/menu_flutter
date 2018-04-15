@@ -17,7 +17,7 @@
 - [x] ~~create secondary [screen](https://www.uplabs.com/posts/about-us-ramen-restaurant-app)~~
 - [x] ~~navigate to secondary screen with hero animation~~
 - [x] ~~Make cards slide animation~~
-- [ ] Increment & decrement quantities
+- [x] ~~Increment & decrement quantities~~
 - [ ] Counter add actual items selected in a list
 - [ ] create application [architecture](https://github.com/brianegan/flutter_architecture_samples)
 
