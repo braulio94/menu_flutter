@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'package:flutter/scheduler.dart' show timeDilation ;
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:menu/routes.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
+import 'package:menu/widgets/cart_button.dart';
 import 'package:menu/widgets/custom_app_bar.dart';
 import 'package:menu/widgets/animated_circle.dart';
 import 'package:menu/widgets/rectangle_indicator.dart';
@@ -26,7 +25,7 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
   final PageController _pageController = new PageController(viewportFraction: _kViewportFraction);
   ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
-  final int _counter = 0;
+  int _counter = 0;
   AnimationController controller;
 
 
@@ -48,9 +47,19 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
 
   Future<Null> playAnimation() async {
     try {
-      await controller.forward().orCancel;
-      await controller.reverse().orCancel;
-    } on TickerCanceled{
+      if(controller.isCompleted){
+        controller.reset();
+        await controller.forward().orCancel;
+      } else {
+        await controller.forward().orCancel;
+      }
+      setState(() {
+        _counter = 0;
+        //controller.reset();
+      });
+
+      //await controller.reverse().orCancel;
+    } on TickerCanceled {
 
     }
   }
@@ -77,50 +86,22 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
               children: <Widget>[
                 shadow2,
                 shadow1,
-                new Center(
-                  child: new Padding(
-                    padding: const EdgeInsets.only(top: 50.0),
-                    child: new Card(
-                      elevation: 0.0,
-                      child: new Container(
-                        height: math.min(300.0, MediaQuery.of(context).size.height),
-                        child: new GestureDetector(
-                          behavior: HitTestBehavior.opaque,
-                          onTap: () =>
-                              Routes.navigateTo(
-                                  context,
-                                  '/detail/${food.id}',
-                              ),
-                          child: new ItemCard(food: food),
-                        ),
-                      ),
-                    ),
-                  ),
+                new ItemCard(
+                    food: food,
+                    increment: () {
+                      setState(() {
+                        _counter++;
+                      });
+                    },
+                    decrement: () {
+                      setState(() {
+                        _counter--;
+                      });
+                    },
+                    counter: _counter
                 ),
-                new Align(
-                    alignment: FractionalOffset.topCenter,
-                    child: new FoodImage(food: food),
-                ),
-                new Align(
-                  alignment: FractionalOffset.bottomCenter,
-                  child: new SizedBox(
-                    width: 70.0,
-                    height: 50.0,
-                    child: new MaterialButton(
-                      highlightColor: Colors.grey[400],
-                      onPressed: (){
-                        playAnimation();
-                      },
-                      elevation: _counter == 0 ? 10.0 : 5.0,
-                      color: _counter == 0 ? Colors.grey[350] : Colors.amber,
-                      child: new Icon(
-                          const IconData(
-                              0xe807,
-                              fontFamily: 'fontello'), size: 20.0,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
+                new FoodImage(food: food),
+                new CartButton(counter: _counter, addToCart: (){playAnimation();})
               ],
             ),
           ),
