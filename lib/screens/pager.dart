@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/scheduler.dart' show timeDilation ;
 import 'package:flutter/material.dart';
+import 'package:menu/model/background_colors.dart';
 import 'package:menu/model/food.dart';
 import 'package:menu/model/menu.dart';
 import 'package:menu/widgets/cart_button.dart';
@@ -60,16 +61,6 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
 
     }
   }
-
-  final List<Color> colors = <Color>[
-    const Color.fromRGBO(240, 232, 223, 1.0),
-    const Color.fromRGBO(214, 214, 198, 1.0),
-    const Color.fromRGBO(209, 205, 190, 1.0),
-    const Color.fromRGBO(239, 233, 219, 1.0),
-    const Color.fromRGBO(207, 203, 188, 1.0),
-    const Color.fromRGBO(231, 222, 211, 1.0),
-    const Color.fromRGBO(217, 214, 198, 1.0),
-  ];
 
   _contentWidget(Food food, Alignment alignment, double resize) {
     return new Stack(
