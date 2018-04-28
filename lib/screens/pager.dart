@@ -41,6 +41,8 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
   @override
   void dispose() {
     controller.dispose();
+    _pageController.dispose();
+    _backgroundPageController.dispose();
     super.dispose();
   }
 
