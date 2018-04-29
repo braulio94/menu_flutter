@@ -19,7 +19,6 @@
 - [x] ~~Make cards slide animation~~
 - [x] ~~Increment & decrement quantities~~
 - [ ] Counter add actual items selected in a list
-- [ ] create application [architecture](https://github.com/brianegan/flutter_architecture_samples)
 
 
 ### Getting Started
