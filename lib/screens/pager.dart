@@ -190,8 +190,8 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
           ),
         ),
         Positioned.fill(
-          top: 35.0,
-          right: 10.0,
+          top: 30.0,
+          right: 5.0,
           bottom: 100.0,
           child: new StaggerAnimation(controller: controller.view),
         ),
