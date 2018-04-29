@@ -7,6 +7,7 @@ void main() {
   Routes.initRoutes();
   runApp(
       new MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'MENU',
         home: new MenuHomePage(),
       )
