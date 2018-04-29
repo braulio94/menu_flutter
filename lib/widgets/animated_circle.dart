@@ -18,17 +18,17 @@ class StaggerAnimation extends StatelessWidget {
         dx = new Tween<double>(
             end: 15.0,
             begin: 60.0
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
+        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 1.0, curve: Curves.ease))),
 
         dy = new Tween<double>(
             end: 15.0,
             begin: 60.0
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
+        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 1.0, curve: Curves.ease))),
 
         alignment = new AlignmentTween(
           begin: Alignment.bottomCenter,
           end: Alignment.topRight,
-        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.500, curve: Curves.ease))),
+        ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 1.0, curve: Curves.ease))),
 
         super(key: key);
 
@@ -48,6 +48,7 @@ class StaggerAnimation extends StatelessWidget {
         )
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return new AnimatedBuilder(

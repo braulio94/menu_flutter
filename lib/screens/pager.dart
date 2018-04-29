@@ -27,21 +27,24 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
   ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   int _counter = 0;
-  AnimationController controller;
+  AnimationController controller, scaleController;
+  Animation<double> scaleAnimation;
 
 
   @override
   void initState() {
     super.initState();
-    controller = new AnimationController(
-        duration: const Duration(milliseconds: 700),
-        vsync: this
+    controller = new AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
+    scaleController = new AnimationController(vsync: this, duration: Duration(milliseconds: 175));
+    scaleAnimation = new Tween<double>(begin: 1.0, end: 1.20).animate(
+        new CurvedAnimation(parent: scaleController, curve: Curves.easeOut)
     );
   }
 
   @override
   void dispose() {
     controller.dispose();
+    scaleController.dispose();
     _pageController.dispose();
     _backgroundPageController.dispose();
     super.dispose();
@@ -53,9 +56,18 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
       setState(() {_counter = 0;});
       if(controller.isCompleted){
         controller.reset();
-        await controller.forward().orCancel;
+        await controller.forward().whenComplete((){
+          scaleController.forward().whenComplete((){
+            scaleController.reverse();
+          });
+
+        });
       } else {
-        await controller.forward().orCancel;
+        await controller.forward().whenComplete((){
+          scaleController.forward().whenComplete((){
+            scaleController.reverse();
+          });
+        });
       }
     } on TickerCanceled {
 
@@ -172,7 +184,24 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
           top: 35.0,
           right: 10.0,
           bottom: 100.0,
-          child: new StaggerAnimation(controller: controller.view)
+          child: new StaggerAnimation(controller: controller.view),
+        ),
+        new Align(
+          alignment: Alignment.topRight,
+          child: new ScaleTransition(
+            scale: scaleAnimation,
+            child: new Container(
+              height: 20.0,
+              width: 20.0,
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(top: 30.0, right: 5.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.amber
+              ),
+              child: new Text('$_counter', textDirection: TextDirection.ltr, style: const TextStyle(color: Colors.white, fontSize: 12.0)),
+            ),
+          ),
         ),
       ],
     );
