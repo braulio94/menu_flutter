@@ -27,9 +27,10 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
   ValueNotifier<double> selectedIndex = new ValueNotifier<double>(0.0);
   Color _backColor = const Color.fromRGBO(240, 232, 223, 1.0);
   int _counter = 0;
+  int _cartQuantity = 0;
   AnimationController controller, scaleController;
   Animation<double> scaleAnimation;
-
+  bool firstEntry = true;
 
   @override
   void initState() {
@@ -50,20 +51,28 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
     super.dispose();
   }
 
-
   Future<Null> playAnimation() async {
     try {
-      setState(() {_counter = 0;});
       if(controller.isCompleted){
         controller.reset();
         await controller.forward().whenComplete((){
           scaleController.forward().whenComplete((){
             scaleController.reverse();
+            setState(() {
+              _cartQuantity = _cartQuantity + _counter;
+              _counter = 0;
+            });
           });
-
         });
       } else {
         await controller.forward().whenComplete((){
+          setState(() {
+            if(firstEntry){
+              firstEntry = false;
+            }
+            _cartQuantity = _cartQuantity + _counter;
+            _counter = 0;
+          });
           scaleController.forward().whenComplete((){
             scaleController.reverse();
           });
@@ -186,6 +195,7 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
           bottom: 100.0,
           child: new StaggerAnimation(controller: controller.view),
         ),
+        firstEntry ? Container():
         new Align(
           alignment: Alignment.topRight,
           child: new ScaleTransition(
@@ -196,10 +206,10 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
               alignment: Alignment.center,
               margin: EdgeInsets.only(top: 30.0, right: 5.0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.amber
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.amber
               ),
-              child: new Text('$_counter', textDirection: TextDirection.ltr, style: const TextStyle(color: Colors.white, fontSize: 12.0)),
+              child: new Text('$_cartQuantity', textDirection: TextDirection.ltr, style: const TextStyle(color: Colors.white, fontSize: 12.0)),
             ),
           ),
         ),

@@ -16,12 +16,12 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 0.200, curve: Curves.ease))),
 
         dx = new Tween<double>(
-            end: 15.0,
+            end: 20.0,
             begin: 60.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 1.0, curve: Curves.ease))),
 
         dy = new Tween<double>(
-            end: 15.0,
+            end: 20.0,
             begin: 60.0
         ).animate(new CurvedAnimation(parent: controller, curve: new Interval(0.0, 1.0, curve: Curves.ease))),
 
