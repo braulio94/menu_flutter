@@ -3,12 +3,11 @@ import 'package:menu/model/food.dart';
 import 'dart:math' as math;
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({this.food, this.counter, this.increment, this.decrement});
+  const ItemCard({this.food, this.increment, this.decrement});
 
   final Food food;
   final VoidCallback increment;
   final VoidCallback decrement;
-  final int counter;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +51,7 @@ class ItemCard extends StatelessWidget {
                       children: <Widget>[
                         new IconButton(
                           icon: new Icon(Icons.remove),
-                          onPressed: counter == 0 ? null : decrement,
+                          onPressed: food.quantity == 0 ? null : decrement,
                         ),
                         new Container(
                           decoration: new BoxDecoration(
@@ -65,7 +64,7 @@ class ItemCard extends StatelessWidget {
                             width: 70.0,
                             height: 45.0,
                             child: new Center(
-                                child: new Text('$counter',
+                                child: new Text('${food.quantity}',
                                     style: Theme.of(context).textTheme.subhead,
                                     textAlign: TextAlign.center)),
                           ),

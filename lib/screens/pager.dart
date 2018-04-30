@@ -96,7 +96,7 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
                 shadow2,
                 shadow1,
                 new ItemCard(
-                    food: food,
+                    food: food.copyWith(quantity: _counter),
                     increment: () {
                       setState(() {
                         _counter++;
@@ -107,16 +107,20 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
                         _counter--;
                       });
                     },
-                    counter: _counter
                 ),
                 new FoodImage(food: food),
-                new CartButton(counter: _counter, addToCart: (){playAnimation();})
+                new CartButton(counter: food.copyWith(quantity: _counter).quantity, addToCart: (){playAnimation();})
               ],
             ),
           ),
         ),
       ],
     );
+  }
+
+  void updateOrder({int counter, Food food}){
+
+    food.copyWith(quantity: _counter);
   }
 
   Iterable<Widget> _buildPages() {
