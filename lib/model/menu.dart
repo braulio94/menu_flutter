@@ -1,7 +1,7 @@
 import 'package:menu/model/food.dart';
 
 class Menu {
-  static const List<Food> menu = [
+  static List<Food> menu = [
     Food(
         id: "1",
         image: "assets/images/menu1.png",

@@ -83,7 +83,13 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
     }
   }
 
-  _contentWidget(Food food, Alignment alignment, double resize) {
+  onChangeFoodItem(int index, int value, Food food){
+    setState(() {
+      Menu.menu[index] = food.copyWith(quantity: value);
+    });
+  }
+
+  _contentWidget(Food food, int index, Alignment alignment, double resize) {
     return new Stack(
       children: <Widget>[
         new Center(
@@ -96,31 +102,25 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
                 shadow2,
                 shadow1,
                 new ItemCard(
-                    food: food.copyWith(quantity: _counter),
+                    food: food,
                     increment: () {
-                      setState(() {
-                        _counter++;
-                      });
+                      onChangeFoodItem(index, _counter++, food);
                     },
                     decrement: () {
-                      setState(() {
-                        _counter--;
-                      });
+                      onChangeFoodItem(index, _counter++, food);
                     },
                 ),
                 new FoodImage(food: food),
-                new CartButton(counter: food.copyWith(quantity: _counter).quantity, addToCart: (){playAnimation();})
+                new CartButton(counter: food.quantity, addToCart: (){
+                  onChangeFoodItem(index, 0, food);
+                  playAnimation();
+                })
               ],
             ),
           ),
         ),
       ],
     );
-  }
-
-  void updateOrder({int counter, Food food}){
-
-    food.copyWith(quantity: _counter);
   }
 
   Iterable<Widget> _buildPages() {
@@ -133,6 +133,7 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
       pages.add(
           _contentWidget(
             Menu.menu[index],
+            index,
             alignment,
             resizeFactor,
           )
