@@ -2,8 +2,7 @@
 
 
 
-<img src="https://github.com/braulio94/menu/blob/master/screenshots/screenshot.png" width="240" height="450">                      [<img src="https://github.com/braulio94/menu_flutter/blob/master/screenshots/preview.gif" width="600" height="450">](https://goo.gl/jChLBV)
-
+![preview](https://raw.githubusercontent.com/braulio94/menu_flutter/master/screenshots/menu_flutter.gif)
 
 
 ## Todo
