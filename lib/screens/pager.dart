@@ -102,19 +102,25 @@ class _MenuPagerState extends State<MenuPager> with TickerProviderStateMixin {
                 shadow2,
                 shadow1,
                 new ItemCard(
-                    food: food,
-                    increment: () {
-                      onChangeFoodItem(index, _counter++, food);
-                    },
-                    decrement: () {
-                      onChangeFoodItem(index, _counter++, food);
-                    },
+                  food: food,
+                  increment: () {
+                    setState(() {
+                      _counter++;
+                    });
+                    onChangeFoodItem(index, _counter, food);
+                  },
+                  decrement: () {
+                    setState(() {
+                      _counter--;
+                    });
+                    onChangeFoodItem(index, _counter, food);
+                  },
                 ),
                 new FoodImage(food: food),
                 new CartButton(counter: food.quantity, addToCart: (){
                   onChangeFoodItem(index, 0, food);
                   playAnimation();
-                })
+                }),
               ],
             ),
           ),
