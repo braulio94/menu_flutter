@@ -15,11 +15,11 @@ class FoodImage extends StatelessWidget {
       alignment: FractionalOffset.topCenter,
       child:  new GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () =>
-            Routes.navigateTo(
-              context,
-              '/detail/${food.id}',
-            ),
+//        onTap: () =>
+//            Routes.navigateTo(
+//              context,
+//              '/detail/${food.id}',
+//            ),
         child: new Hero(
           tag: 'icon-${food.id}',
           child: new Image(
