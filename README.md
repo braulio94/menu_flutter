@@ -18,7 +18,6 @@
 - [x] ~~navigate to secondary screen with hero animation~~
 - [x] ~~Make cards slide animation~~
 - [x] ~~Increment & decrement quantities~~
-- [ ] Counter add actual items selected in a list
 
 
 ### Getting Started
