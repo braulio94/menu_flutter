@@ -1,5 +1,8 @@
-# Menu Flutter  <img src="https://flutter.io/images/flutter-mark-square-100.png" alt="Flutter" width="30" height="30" />
+<a href="https://github.com/Solido/awesome-flutter#templates">
+   <img alt="Awesome Flutter" src="https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square" />
+</a>
 
+# Menu Flutter  <img src="https://flutter.io/images/flutter-mark-square-100.png" alt="Flutter" width="30" height="30" />
 
 
 ![preview](https://raw.githubusercontent.com/braulio94/menu_flutter/master/screenshots/menu_flutter.gif)
